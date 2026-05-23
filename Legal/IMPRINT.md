@@ -5,8 +5,8 @@ Angaben gemäß § 5 TMG.
 ## Anbieter
 
 Marcel Sön
-[Straße und Hausnummer eintragen]
-[PLZ und Ort eintragen]
+Muldentalstraße 100
+04288 Leipzig (Leipzig-Liebertwolkwitz)
 Deutschland
 
 ## Kontakt
@@ -40,8 +40,3 @@ Apple, Apple Home, HomeKit, Apple TV, iCloud und Siri Remote sind eingetragene
 Marken der Apple Inc. HomeDash ist eine unabhängige Anwendung und steht in
 keinerlei Verbindung zu Apple Inc.
 
----
-
-> **Hinweis vor Veröffentlichung:** Trage oben deine vollständige Postanschrift
-> ein. Das Impressum ist in Deutschland für jede geschäftsmäßige Telemedien-Seite
-> Pflicht — auch wenn die App kostenlos ist und du als Privatperson auftrittst.
