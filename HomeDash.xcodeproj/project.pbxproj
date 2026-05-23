@@ -1,0 +1,482 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		060987063EAD510663AEA798 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD3D582C8FF5953B3D9C1A15 /* Preview Assets.xcassets */; };
+		0DA047632111FC0304D851BE /* FocusableTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605F7706860FB9F62DB65201 /* FocusableTap.swift */; };
+		163D25958D2C3BDF54D716CC /* DetailCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03D861E1D6E95D312B4EA33 /* DetailCards.swift */; };
+		1B3DE6DF18D8B5DC2C77E1EB /* PermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B221A1F64A6B97C6702E4308 /* PermissionView.swift */; };
+		1E1172A0A76FE607121A300E /* FocusOutline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BDCC160C7A8335910A730 /* FocusOutline.swift */; };
+		3595AD6D0D3DBFB4939AD8A1 /* HomeDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA212BE9BC7AEC1A405CBC /* HomeDashboardView.swift */; };
+		35BB9C4ED2B7DE1E58F032C3 /* ScenesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169064ACDEEAE11A358276F /* ScenesSection.swift */; };
+		36236D66609C656B78EBF0D0 /* FavoritesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42692983C69B31EA786656 /* FavoritesStore.swift */; };
+		38EC0E36825DD1BAAD70CD1B /* HomePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BE70065BC99A8A3B117DD4 /* HomePickerView.swift */; };
+		3E80E787CFF5796B2E2766EE /* HMAccessory+Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB7D3A7715A6882E4D5E7B /* HMAccessory+Kind.swift */; };
+		432D0E9330A5C517ECA7F8CC /* AccessoryPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5610E42780D2EBF641AD18 /* AccessoryPalette.swift */; };
+		4E16D87B2581488632DC1152 /* HomeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517D00CB84AD3A7760A46D3A /* HomeStore.swift */; };
+		5EAF64525AAC6F784C3CBB4F /* TileStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360DD73E21D687E780BCD91 /* TileStyle.swift */; };
+		603A76833D66B12690DAB82D /* HMAccessory+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC333E5ED5E65F6468FFC1 /* HMAccessory+State.swift */; };
+		732645FAA531FDF445C14C37 /* HMService+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786311468DED6626052B176B /* HMService+Helpers.swift */; };
+		79341287570ADD0AA63BE272 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF75B05EAE749D0C9D2511 /* EmptyStateView.swift */; };
+		7E15F97DA01473E0DE51AAC4 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = F141093369BE4F6DE8C4B796 /* PrivacyInfo.xcprivacy */; };
+		81804D8BBC390D49E1A2BD88 /* AccessoryKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDA849F21B105FC6CD94DE8 /* AccessoryKind.swift */; };
+		8D339C163904EF3C117513F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3119D3F46D6448B46F6E97 /* ContentView.swift */; };
+		8F2F94689FCAD7A26EDCA686 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47183E8B15F4FADC78EACDA1 /* Localizable.strings */; };
+		95000705F54A3A0A54622342 /* DesignTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449ACB730333E8AE10B72359 /* DesignTokens.swift */; };
+		9D430A4226D474A92E0CEE89 /* ColorPickerGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09947DDFE3C3A764A27F75 /* ColorPickerGrid.swift */; };
+		9E08524F64929543CBC1A91D /* TVSliderControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CD775572DC883E0AEDAF9 /* TVSliderControl.swift */; };
+		ABCB0B815CE0A34494D5F198 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC4A6CAC76DAAF8BF6C42990 /* Assets.xcassets */; };
+		C463E0907C6503B9063EDCCD /* SceneTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9490F8C8BC669804A2E86DB8 /* SceneTile.swift */; };
+		CB5E653ECA8043BE04AD2DA9 /* AccessoryTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B8ABB2751B76E188C757AF /* AccessoryTile.swift */; };
+		D964E3E57DC3E76D653E4E80 /* AccessoryDetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC67DEA0E39A5E0F2CCB5D7E /* AccessoryDetailSheet.swift */; };
+		DAEAEC656CCD94397B63E0D8 /* HomeDashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15AD4C18507E2C8A3CB1DA7 /* HomeDashApp.swift */; };
+		DCD6602FC8B16973AC047F96 /* RoomSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E291FE23E86766319454A /* RoomSection.swift */; };
+		F1FE9010DF30F9CC6BFCFAB5 /* FavoritesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89650B9E1FC05A7878D1EDC /* FavoritesSection.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1B5AE9E88921DE7D741BC261 /* HomeDash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeDash.entitlements; sourceTree = "<group>"; };
+		1F42692983C69B31EA786656 /* FavoritesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesStore.swift; sourceTree = "<group>"; };
+		2DBB7D3A7715A6882E4D5E7B /* HMAccessory+Kind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HMAccessory+Kind.swift"; sourceTree = "<group>"; };
+		3169064ACDEEAE11A358276F /* ScenesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenesSection.swift; sourceTree = "<group>"; };
+		32BE70065BC99A8A3B117DD4 /* HomePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePickerView.swift; sourceTree = "<group>"; };
+		3F2BDCC160C7A8335910A730 /* FocusOutline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusOutline.swift; sourceTree = "<group>"; };
+		449ACB730333E8AE10B72359 /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
+		451B886F9C96ED1744C9F222 /* HomeDash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeDash.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		492CD775572DC883E0AEDAF9 /* TVSliderControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSliderControl.swift; sourceTree = "<group>"; };
+		4EDA212BE9BC7AEC1A405CBC /* HomeDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDashboardView.swift; sourceTree = "<group>"; };
+		517D00CB84AD3A7760A46D3A /* HomeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStore.swift; sourceTree = "<group>"; };
+		59B8ABB2751B76E188C757AF /* AccessoryTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryTile.swift; sourceTree = "<group>"; };
+		5ADF75B05EAE749D0C9D2511 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		5B3119D3F46D6448B46F6E97 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5E5610E42780D2EBF641AD18 /* AccessoryPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryPalette.swift; sourceTree = "<group>"; };
+		605F7706860FB9F62DB65201 /* FocusableTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusableTap.swift; sourceTree = "<group>"; };
+		6360DD73E21D687E780BCD91 /* TileStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileStyle.swift; sourceTree = "<group>"; };
+		786311468DED6626052B176B /* HMService+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HMService+Helpers.swift"; sourceTree = "<group>"; };
+		9490F8C8BC669804A2E86DB8 /* SceneTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTile.swift; sourceTree = "<group>"; };
+		A89650B9E1FC05A7878D1EDC /* FavoritesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSection.swift; sourceTree = "<group>"; };
+		B221A1F64A6B97C6702E4308 /* PermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionView.swift; sourceTree = "<group>"; };
+		BBDA849F21B105FC6CD94DE8 /* AccessoryKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryKind.swift; sourceTree = "<group>"; };
+		BC4A6CAC76DAAF8BF6C42990 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BC67DEA0E39A5E0F2CCB5D7E /* AccessoryDetailSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryDetailSheet.swift; sourceTree = "<group>"; };
+		C03D861E1D6E95D312B4EA33 /* DetailCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCards.swift; sourceTree = "<group>"; };
+		C2FC333E5ED5E65F6468FFC1 /* HMAccessory+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HMAccessory+State.swift"; sourceTree = "<group>"; };
+		CA9DA50D532D3C250DA8D3CB /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CD09947DDFE3C3A764A27F75 /* ColorPickerGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerGrid.swift; sourceTree = "<group>"; };
+		D5E99AC2F4D0507A969950E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D839DA8A37961E8328FCBC07 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E15AD4C18507E2C8A3CB1DA7 /* HomeDashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDashApp.swift; sourceTree = "<group>"; };
+		F10E291FE23E86766319454A /* RoomSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSection.swift; sourceTree = "<group>"; };
+		F141093369BE4F6DE8C4B796 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		FD3D582C8FF5953B3D9C1A15 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FE7006A0F8A8753331FC7CCD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02295A811BDEEAFA1233C89F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FD3D582C8FF5953B3D9C1A15 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		09CBF8C55B370D71818E5E9E /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				449ACB730333E8AE10B72359 /* DesignTokens.swift */,
+				5E5610E42780D2EBF641AD18 /* AccessoryPalette.swift */,
+				6360DD73E21D687E780BCD91 /* TileStyle.swift */,
+				492CD775572DC883E0AEDAF9 /* TVSliderControl.swift */,
+				3F2BDCC160C7A8335910A730 /* FocusOutline.swift */,
+				605F7706860FB9F62DB65201 /* FocusableTap.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		4403BD4284D68218CF602CE0 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				47183E8B15F4FADC78EACDA1 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		449D802EA42273F7DFF987F1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2DBB7D3A7715A6882E4D5E7B /* HMAccessory+Kind.swift */,
+				C2FC333E5ED5E65F6468FFC1 /* HMAccessory+State.swift */,
+				786311468DED6626052B176B /* HMService+Helpers.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		692092DE1C1C8624E142B71D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				451B886F9C96ED1744C9F222 /* HomeDash.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E8BB00AD438BCDAFF846991 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8635202D3DD52390E6693AEA /* Tiles */ = {
+			isa = PBXGroup;
+			children = (
+				59B8ABB2751B76E188C757AF /* AccessoryTile.swift */,
+				9490F8C8BC669804A2E86DB8 /* SceneTile.swift */,
+			);
+			path = Tiles;
+			sourceTree = "<group>";
+		};
+		8F8D6B6B27F838896A5B1124 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5B3119D3F46D6448B46F6E97 /* ContentView.swift */,
+				B221A1F64A6B97C6702E4308 /* PermissionView.swift */,
+				5ADF75B05EAE749D0C9D2511 /* EmptyStateView.swift */,
+				A89650B9E1FC05A7878D1EDC /* FavoritesSection.swift */,
+				4EDA212BE9BC7AEC1A405CBC /* HomeDashboardView.swift */,
+				32BE70065BC99A8A3B117DD4 /* HomePickerView.swift */,
+				F10E291FE23E86766319454A /* RoomSection.swift */,
+				3169064ACDEEAE11A358276F /* ScenesSection.swift */,
+				8635202D3DD52390E6693AEA /* Tiles */,
+				CEBDCEE968876A96A15D0E6B /* Detail */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AB48CFA305015276AB5620D4 = {
+			isa = PBXGroup;
+			children = (
+				C8A1E76B6CA46DDC89E29CCD /* HomeDash */,
+				692092DE1C1C8624E142B71D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B99F471D010040BEA9A33320 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				517D00CB84AD3A7760A46D3A /* HomeStore.swift */,
+				BBDA849F21B105FC6CD94DE8 /* AccessoryKind.swift */,
+				1F42692983C69B31EA786656 /* FavoritesStore.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C8A1E76B6CA46DDC89E29CCD /* HomeDash */ = {
+			isa = PBXGroup;
+			children = (
+				E15AD4C18507E2C8A3CB1DA7 /* HomeDashApp.swift */,
+				B99F471D010040BEA9A33320 /* Models */,
+				449D802EA42273F7DFF987F1 /* Extensions */,
+				09CBF8C55B370D71818E5E9E /* DesignSystem */,
+				8F8D6B6B27F838896A5B1124 /* Views */,
+				7E8BB00AD438BCDAFF846991 /* Resources */,
+				4403BD4284D68218CF602CE0 /* Localization */,
+				02295A811BDEEAFA1233C89F /* Preview Content */,
+				BC4A6CAC76DAAF8BF6C42990 /* Assets.xcassets */,
+				D5E99AC2F4D0507A969950E8 /* Info.plist */,
+				1B5AE9E88921DE7D741BC261 /* HomeDash.entitlements */,
+				F141093369BE4F6DE8C4B796 /* PrivacyInfo.xcprivacy */,
+			);
+			path = HomeDash;
+			sourceTree = "<group>";
+		};
+		CEBDCEE968876A96A15D0E6B /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BC67DEA0E39A5E0F2CCB5D7E /* AccessoryDetailSheet.swift */,
+				CD09947DDFE3C3A764A27F75 /* ColorPickerGrid.swift */,
+				C03D861E1D6E95D312B4EA33 /* DetailCards.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F946E7157C8D51B0712F13E3 /* HomeDash */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CE13338EF7E479F126B5A67 /* Build configuration list for PBXNativeTarget "HomeDash" */;
+			buildPhases = (
+				9E199EDCB17B4C967EDEA5CE /* Sources */,
+				FE7006A0F8A8753331FC7CCD /* Frameworks */,
+				AB2660E5E1235C14F8623B10 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HomeDash;
+			productName = HomeDash;
+			productReference = 451B886F9C96ED1744C9F222 /* HomeDash.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EACBEB2E5A1B6AC3EC199005 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					F946E7157C8D51B0712F13E3 = {
+						CreatedOnToolsVersion = 26.0;
+						SystemCapabilities = {
+							com.apple.HomeKit = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = F204399F5CD61B8CA6AEF4E7 /* Build configuration list for PBXProject "HomeDash" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = de;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				de,
+				en,
+				Base,
+			);
+			mainGroup = AB48CFA305015276AB5620D4;
+			productRefGroup = 692092DE1C1C8624E142B71D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F946E7157C8D51B0712F13E3 /* HomeDash */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AB2660E5E1235C14F8623B10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABCB0B815CE0A34494D5F198 /* Assets.xcassets in Resources */,
+				7E15F97DA01473E0DE51AAC4 /* PrivacyInfo.xcprivacy in Resources */,
+				060987063EAD510663AEA798 /* Preview Assets.xcassets in Resources */,
+				8F2F94689FCAD7A26EDCA686 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9E199EDCB17B4C967EDEA5CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAEAEC656CCD94397B63E0D8 /* HomeDashApp.swift in Sources */,
+				4E16D87B2581488632DC1152 /* HomeStore.swift in Sources */,
+				81804D8BBC390D49E1A2BD88 /* AccessoryKind.swift in Sources */,
+				36236D66609C656B78EBF0D0 /* FavoritesStore.swift in Sources */,
+				3E80E787CFF5796B2E2766EE /* HMAccessory+Kind.swift in Sources */,
+				603A76833D66B12690DAB82D /* HMAccessory+State.swift in Sources */,
+				732645FAA531FDF445C14C37 /* HMService+Helpers.swift in Sources */,
+				95000705F54A3A0A54622342 /* DesignTokens.swift in Sources */,
+				432D0E9330A5C517ECA7F8CC /* AccessoryPalette.swift in Sources */,
+				5EAF64525AAC6F784C3CBB4F /* TileStyle.swift in Sources */,
+				9E08524F64929543CBC1A91D /* TVSliderControl.swift in Sources */,
+				1E1172A0A76FE607121A300E /* FocusOutline.swift in Sources */,
+				0DA047632111FC0304D851BE /* FocusableTap.swift in Sources */,
+				8D339C163904EF3C117513F5 /* ContentView.swift in Sources */,
+				1B3DE6DF18D8B5DC2C77E1EB /* PermissionView.swift in Sources */,
+				79341287570ADD0AA63BE272 /* EmptyStateView.swift in Sources */,
+				F1FE9010DF30F9CC6BFCFAB5 /* FavoritesSection.swift in Sources */,
+				3595AD6D0D3DBFB4939AD8A1 /* HomeDashboardView.swift in Sources */,
+				38EC0E36825DD1BAAD70CD1B /* HomePickerView.swift in Sources */,
+				DCD6602FC8B16973AC047F96 /* RoomSection.swift in Sources */,
+				35BB9C4ED2B7DE1E58F032C3 /* ScenesSection.swift in Sources */,
+				CB5E653ECA8043BE04AD2DA9 /* AccessoryTile.swift in Sources */,
+				C463E0907C6503B9063EDCCD /* SceneTile.swift in Sources */,
+				D964E3E57DC3E76D653E4E80 /* AccessoryDetailSheet.swift in Sources */,
+				9D430A4226D474A92E0CEE89 /* ColorPickerGrid.swift in Sources */,
+				163D25958D2C3BDF54D716CC /* DetailCards.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		47183E8B15F4FADC78EACDA1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA9DA50D532D3C250DA8D3CB /* de */,
+				D839DA8A37961E8328FCBC07 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2FF1DBA5E69E97D616B47E9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = targeted;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Debug;
+		};
+		92B651005C059E5A014B4274 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Brand Assets";
+				CODE_SIGN_ENTITLEMENTS = HomeDash/HomeDash.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HomeDash/Preview Content\"";
+				DEVELOPMENT_TEAM = 3PXX8LS2JZ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = HomeDash/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HomeDash;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.marcel.homedash;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Debug;
+		};
+		C034FB35C3D03BB94DB93435 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = appletvos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_STRICT_CONCURRENCY = targeted;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C0F789BE5DEE84C6255D0CC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Brand Assets";
+				CODE_SIGN_ENTITLEMENTS = HomeDash/HomeDash.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HomeDash/Preview Content\"";
+				DEVELOPMENT_TEAM = 3PXX8LS2JZ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = HomeDash/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HomeDash;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.marcel.homedash;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6CE13338EF7E479F126B5A67 /* Build configuration list for PBXNativeTarget "HomeDash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92B651005C059E5A014B4274 /* Debug */,
+				C0F789BE5DEE84C6255D0CC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F204399F5CD61B8CA6AEF4E7 /* Build configuration list for PBXProject "HomeDash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FF1DBA5E69E97D616B47E9E /* Debug */,
+				C034FB35C3D03BB94DB93435 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EACBEB2E5A1B6AC3EC199005 /* Project object */;
+}

@@ -1,0 +1,67 @@
+/* App-übergreifend */
+"app.name" = "HomeDash";
+"app.tagline" = "Dein Zuhause auf dem Fernseher";
+
+/* Root / Loading */
+"root.loading" = "HomeDash wird geladen…";
+
+/* Permission View */
+"permission.title" = "Zugriff auf dein Zuhause";
+"permission.body" = "HomeDash benötigt die Berechtigung, auf dein Apple Home zuzugreifen, um deine Räume und Geräte anzeigen zu können.";
+"permission.cta" = "Berechtigung erteilen";
+"permission.restricted.title" = "Zugriff deaktiviert";
+"permission.restricted.body" = "Öffne auf der Apple TV die Einstellungen → Apps → HomeDash und aktiviere den Zugriff auf Apple Home.";
+"permission.determined.title" = "Keine Antwort von Apple Home";
+"permission.determined.body" = "Stelle sicher, dass du auf dieser Apple TV mit der iCloud-ID angemeldet bist, unter der dein Zuhause eingerichtet wurde.";
+
+/* Empty States */
+"empty.noHomes.title" = "Kein Zuhause gefunden";
+"empty.noHomes.body" = "Richte mit der Home-App auf iPhone oder iPad ein Zuhause ein. Es erscheint anschließend automatisch hier.";
+"empty.noAccessories.title" = "Noch keine Geräte";
+"empty.noAccessories.body" = "Füge mit der Home-App Geräte zu deinem Zuhause hinzu. HomeDash zeigt sie hier an.";
+
+/* Dashboard */
+"dashboard.scenes" = "Szenen";
+"dashboard.favorites" = "Favoriten";
+"dashboard.allRooms" = "Alle Räume";
+"dashboard.reload" = "Aktualisieren";
+"dashboard.home.picker" = "Zuhause wechseln";
+
+/* Status Texte */
+"status.on" = "An";
+"status.off" = "Aus";
+"status.onWithLevel %@" = "An · %@ %%";
+"status.locked" = "Gesichert";
+"status.unlocked" = "Nicht gesichert";
+"status.opening" = "Öffnet";
+"status.closing" = "Schließt";
+"status.open" = "Offen";
+"status.closed" = "Geschlossen";
+"status.heating %@" = "Heizt auf %@°";
+"status.cooling %@" = "Kühlt auf %@°";
+"status.temperature %@" = "%@°";
+"status.fan.speed %@" = "An · Stufe %@";
+"status.notResponding" = "Keine Antwort";
+"status.detected" = "Erkannt";
+"status.idle" = "Ruhe";
+
+/* Detail Sheets */
+"detail.brightness" = "Helligkeit";
+"detail.colorTemperature" = "Farbtemperatur";
+"detail.warm" = "Warm";
+"detail.cool" = "Kühl";
+"detail.targetTemperature" = "Zieltemperatur";
+"detail.currentTemperature" = "Aktuelle Temperatur";
+"detail.mode" = "Modus";
+"detail.mode.off" = "Aus";
+"detail.mode.heat" = "Heizen";
+"detail.mode.cool" = "Kühlen";
+"detail.mode.auto" = "Automatik";
+"detail.lock" = "Sperren";
+"detail.unlock" = "Entsperren";
+"detail.close" = "Schließen";
+
+/* Accessibility */
+"a11y.tile.toggle" = "Doppeltippen, um zu schalten";
+"a11y.tile.openDetail" = "Lang drücken für Details";
+"a11y.scene.run" = "Doppeltippen, um Szene zu starten";

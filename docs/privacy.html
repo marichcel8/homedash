@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutz – HomeDash</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
+    <style>
+        :root {
+            --bg: #0a0a0c; --bg-2: #16161a; --fg: #f5f5f7; --fg-dim: #98989d;
+            --accent: #0a84ff;
+        }
+        @media (prefers-color-scheme: light) {
+            :root { --bg: #f5f5f7; --bg-2: #ffffff; --fg: #1d1d1f; --fg-dim: #6e6e73; }
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: var(--bg); color: var(--fg);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+            line-height: 1.65;
+        }
+        .container { max-width: 760px; margin: 0 auto; padding: 60px 24px 80px; }
+        a { color: var(--accent); }
+        h1 { font-size: 42px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+        h2 { font-size: 24px; margin: 40px 0 12px; font-weight: 600; }
+        h3 { font-size: 18px; margin: 24px 0 8px; font-weight: 600; }
+        p, li { color: var(--fg-dim); margin-bottom: 12px; }
+        ul, ol { padding-left: 22px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid color-mix(in srgb, var(--fg) 10%, transparent); }
+        th { color: var(--fg); font-weight: 600; }
+        td { color: var(--fg-dim); font-size: 14px; }
+        .back { color: var(--fg-dim); text-decoration: none; font-size: 14px; }
+        .meta { color: var(--fg-dim); font-size: 14px; margin-bottom: 32px; }
+        strong { color: var(--fg); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a class="back" href="index.html">← Zurück</a>
+
+        <h1>Datenschutzerklärung</h1>
+        <p class="meta">Stand: 23. Mai 2026 · Verantwortlich: Marcel Sön — <a href="mailto:marsoen@outlook.de">marsoen@outlook.de</a></p>
+
+        <p><strong>Kurzfassung:</strong> HomeDash verarbeitet alles lokal auf deinem Apple TV. Es werden keine Daten an mich, Apple oder Dritte gesendet, gesammelt oder verkauft.</p>
+
+        <h2>1. Welche Daten werden verarbeitet?</h2>
+        <table>
+            <thead><tr><th>Datenart</th><th>Wo</th><th>Zweck</th></tr></thead>
+            <tbody>
+                <tr><td>Namen deiner Räume, Geräte, Szenen</td><td>nur lokal auf dem Apple TV</td><td>Anzeige im Dashboard</td></tr>
+                <tr><td>Aktueller Status der Geräte</td><td>nur lokal</td><td>Echtzeit-Anzeige und -Steuerung</td></tr>
+                <tr><td>Deine angepinnten Favoriten</td><td><code>UserDefaults</code> lokal</td><td>Persistenz zwischen App-Starts</td></tr>
+            </tbody>
+        </table>
+
+        <h2>2. Welche Daten werden NICHT verarbeitet?</h2>
+        <ul>
+            <li>Kein Tracking, keine Analytics, keine Werbung</li>
+            <li>Keine Crash-Reports an externe Dienste</li>
+            <li>Keine Cloud-Synchronisation durch HomeDash</li>
+            <li>Keine Verknüpfung mit deiner Apple-ID jenseits von Apples Apple-Home-Anbindung</li>
+            <li>Keine personenbezogenen Daten (Name, Mail, Standort)</li>
+        </ul>
+
+        <h2>3. Apple Home / HomeKit-Framework</h2>
+        <p>HomeDash nutzt Apples öffentliches HomeKit-Framework, um lesend und schreibend auf dein konfiguriertes Zuhause zuzugreifen. Die Daten kommen direkt aus deinem iCloud-Account auf dem Apple TV. HomeDash sendet keine HomeKit-Daten nach außen, sammelt sie nicht und gibt sie nicht an Dritte weiter.</p>
+        <p>Für die Apple-Home-Datenverarbeitung selbst gilt <a href="https://www.apple.com/legal/privacy/de-ww/">Apples Datenschutzerklärung</a>.</p>
+
+        <h2>4. Netzwerkverbindungen</h2>
+        <p>HomeDash öffnet <strong>keine</strong> ausgehenden Netzwerkverbindungen. Die Kommunikation mit deinen Apple-Home-Geräten läuft komplett über das HomeKit-Protokoll im lokalen Netz, gesteuert vom System.</p>
+
+        <h2>5. Berechtigungen</h2>
+        <p>HomeDash verwendet eine System-Berechtigung: <strong>Apple Home / HomeKit-Zugriff</strong> — zum Lesen und Steuern deiner Geräte. Du kannst die Berechtigung jederzeit auf der Apple TV entziehen: <em>Einstellungen → Apps → HomeDash → Apple Home</em>.</p>
+
+        <h2>6. Required-Reason-API-Nutzung</h2>
+        <p>Die App nutzt <code>UserDefaults</code> für deine lokal gespeicherten Favoriten. Eingetragen im <code>PrivacyInfo.xcprivacy</code>-Manifest unter Reason-Code <strong>CA92.1</strong> („Access info from same app, per documentation").</p>
+
+        <h2>7. Speicherdauer</h2>
+        <p>Lokale Favoriten bleiben gespeichert, solange du HomeDash installiert hast. Beim Deinstallieren löscht tvOS alle App-Daten automatisch.</p>
+
+        <h2>8. Deine Rechte (DSGVO)</h2>
+        <p>Da HomeDash keine Daten erhebt, die mich erreichen, gibt es keine personenbezogenen Daten, die ich auskunftspflichtig, korrigier- oder löschpflichtig vorhalten könnte. Bei Fragen wende dich an <a href="mailto:marsoen@outlook.de">marsoen@outlook.de</a>.</p>
+
+        <h2>9. Änderungen dieser Erklärung</h2>
+        <p>Bei wesentlichen Änderungen wird die neue Version mit Datum oben veröffentlicht.</p>
+
+        <h2>10. Kontakt</h2>
+        <p>Marcel Sön · <a href="mailto:marsoen@outlook.de">marsoen@outlook.de</a></p>
+    </div>
+</body>
+</html>

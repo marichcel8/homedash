@@ -1,0 +1,67 @@
+/* App-wide */
+"app.name" = "HomeDash";
+"app.tagline" = "Your home on the big screen";
+
+/* Root / Loading */
+"root.loading" = "Loading HomeDash…";
+
+/* Permission View */
+"permission.title" = "Access your home";
+"permission.body" = "HomeDash needs permission to access your Apple Home so it can show your rooms and accessories.";
+"permission.cta" = "Grant Permission";
+"permission.restricted.title" = "Access is disabled";
+"permission.restricted.body" = "On your Apple TV open Settings → Apps → HomeDash and grant access to Apple Home.";
+"permission.determined.title" = "No response from Apple Home";
+"permission.determined.body" = "Make sure this Apple TV is signed in to the same iCloud account where your home is set up.";
+
+/* Empty States */
+"empty.noHomes.title" = "No home found";
+"empty.noHomes.body" = "Use the Home app on iPhone or iPad to set up a home. It will appear here automatically.";
+"empty.noAccessories.title" = "No accessories yet";
+"empty.noAccessories.body" = "Add accessories with the Home app to see them here.";
+
+/* Dashboard */
+"dashboard.scenes" = "Scenes";
+"dashboard.favorites" = "Favorites";
+"dashboard.allRooms" = "All Rooms";
+"dashboard.reload" = "Reload";
+"dashboard.home.picker" = "Switch home";
+
+/* Status Texts */
+"status.on" = "On";
+"status.off" = "Off";
+"status.onWithLevel %@" = "On · %@ %%";
+"status.locked" = "Locked";
+"status.unlocked" = "Unlocked";
+"status.opening" = "Opening";
+"status.closing" = "Closing";
+"status.open" = "Open";
+"status.closed" = "Closed";
+"status.heating %@" = "Heating to %@°";
+"status.cooling %@" = "Cooling to %@°";
+"status.temperature %@" = "%@°";
+"status.fan.speed %@" = "On · Speed %@";
+"status.notResponding" = "Not responding";
+"status.detected" = "Detected";
+"status.idle" = "Idle";
+
+/* Detail Sheets */
+"detail.brightness" = "Brightness";
+"detail.colorTemperature" = "Color Temperature";
+"detail.warm" = "Warm";
+"detail.cool" = "Cool";
+"detail.targetTemperature" = "Target Temperature";
+"detail.currentTemperature" = "Current Temperature";
+"detail.mode" = "Mode";
+"detail.mode.off" = "Off";
+"detail.mode.heat" = "Heat";
+"detail.mode.cool" = "Cool";
+"detail.mode.auto" = "Auto";
+"detail.lock" = "Lock";
+"detail.unlock" = "Unlock";
+"detail.close" = "Close";
+
+/* Accessibility */
+"a11y.tile.toggle" = "Double-tap to toggle";
+"a11y.tile.openDetail" = "Long press for details";
+"a11y.scene.run" = "Double-tap to run scene";

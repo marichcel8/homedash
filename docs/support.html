@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support – HomeDash</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
+    <style>
+        :root {
+            --bg: #0a0a0c; --bg-2: #16161a; --fg: #f5f5f7; --fg-dim: #98989d;
+            --accent: #0a84ff;
+        }
+        @media (prefers-color-scheme: light) {
+            :root { --bg: #f5f5f7; --bg-2: #ffffff; --fg: #1d1d1f; --fg-dim: #6e6e73; }
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: var(--bg); color: var(--fg);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+            line-height: 1.65;
+        }
+        .container { max-width: 760px; margin: 0 auto; padding: 60px 24px 80px; }
+        a { color: var(--accent); }
+        h1 { font-size: 42px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+        h2 { font-size: 22px; margin: 36px 0 12px; font-weight: 600; }
+        p, li { color: var(--fg-dim); margin-bottom: 12px; }
+        ol li, ul li { margin-left: 22px; }
+        details {
+            background: var(--bg-2);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+        details summary { font-weight: 600; color: var(--fg); }
+        details[open] { padding-bottom: 20px; }
+        .back { color: var(--fg-dim); text-decoration: none; font-size: 14px; }
+        .meta { color: var(--fg-dim); font-size: 14px; margin-bottom: 32px; }
+        strong { color: var(--fg); }
+        code { background: color-mix(in srgb, var(--fg) 10%, transparent); padding: 2px 6px; border-radius: 4px; font-size: 90%; }
+        .contact-card {
+            background: var(--bg-2);
+            padding: 24px;
+            border-radius: 16px;
+            margin-top: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a class="back" href="index.html">← Zurück</a>
+
+        <h1>HomeDash Support</h1>
+        <p class="meta">Häufige Fragen und Lösungen.</p>
+
+        <h2>Erste Hilfe</h2>
+
+        <details>
+            <summary>Ich sehe „Zugriff auf dein Zuhause" als Dauerschleife</summary>
+            <p>Apple TV verlangt die Berechtigung für Apple Home in den Systemeinstellungen.</p>
+            <ol>
+                <li>Apple TV → <strong>Einstellungen → Apps → HomeDash</strong></li>
+                <li><strong>Apple Home</strong> auf „An" stellen</li>
+                <li>HomeDash neu öffnen</li>
+            </ol>
+        </details>
+
+        <details>
+            <summary>Es erscheint „Kein Zuhause gefunden"</summary>
+            <p>Apple TV muss mit derselben iCloud-ID angemeldet sein, unter der das Apple Home auf deinem iPhone/iPad eingerichtet ist.</p>
+            <ol>
+                <li>Apple TV → <strong>Einstellungen → Benutzer und Accounts</strong> prüfen</li>
+                <li>Wenn Account stimmt: in der Home-App auf iPhone/iPad sicherstellen, dass mindestens ein Zuhause existiert</li>
+            </ol>
+        </details>
+
+        <details>
+            <summary>Mein Gerät wird angezeigt, aber Toggle macht nichts</summary>
+            <ul>
+                <li>Apple TV muss im selben WLAN sein wie das Accessory</li>
+                <li>In der Home-App auf dem iPhone testen, ob das Gerät dort reagiert</li>
+                <li>Wenn nicht: Accessory ist offline (Stromversorgung / WLAN prüfen)</li>
+            </ul>
+        </details>
+
+        <details>
+            <summary>Mein Lüfter / meine Steckdose wird mit falschem Symbol angezeigt</summary>
+            <p>HomeKit kategorisiert Geräte über die <code>HMAccessoryCategory</code>. Manche Hersteller setzen die Kategorie nicht korrekt, sodass z. B. ein Lüfter als „Switch" auftaucht. HomeDash erkennt das anhand der vorhandenen Eigenschaften und korrigiert es automatisch. Falls trotzdem ein falsches Symbol erscheint, schick mir bitte Modell + Hersteller per Mail.</p>
+        </details>
+
+        <details>
+            <summary>Wo sehe ich Live-Bilder meiner Kamera?</summary>
+            <p>Aktuell zeigt HomeDash für Kameras nur Symbol und Status. Live-Streams sind für eine spätere Version geplant.</p>
+        </details>
+
+        <details>
+            <summary>Wie pinne ich ein Gerät als Favorit?</summary>
+            <ol>
+                <li>Geräte-Tile fokussieren</li>
+                <li>Select-Taste auf der Siri Remote <strong>lang gedrückt halten</strong> (~0,5 s)</li>
+                <li>Im Detail-Sheet oben den <strong>⭐-Stern</strong> anklicken</li>
+            </ol>
+            <p>Favoriten erscheinen oben auf dem Dashboard.</p>
+        </details>
+
+        <details>
+            <summary>Hat die App Adaptive Lighting?</summary>
+            <p>Nein. Apple stellt das API für „Adaptive Lighting" Drittanbietern nicht zur Verfügung. Diese Funktion bleibt der Apple-Home-App auf iPhone/iPad vorbehalten.</p>
+        </details>
+
+        <details>
+            <summary>Wo speichert HomeDash meine Daten?</summary>
+            <p>Ausschließlich lokal auf dem Apple TV (<code>UserDefaults</code> für deine Favoriten). Keine Cloud, kein externer Server, kein Tracking. Details in der <a href="privacy.html">Datenschutzerklärung</a>.</p>
+        </details>
+
+        <div class="contact-card">
+            <h2 style="margin-top:0">Frage nicht dabei?</h2>
+            <p>Schreib mir gerne eine kurze Mail mit Modell + Hersteller des Geräts oder einem Screenshot.</p>
+            <p><a href="mailto:marsoen@outlook.de"><strong>marsoen@outlook.de</strong></a></p>
+        </div>
+    </div>
+</body>
+</html>

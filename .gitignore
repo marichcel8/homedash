@@ -1,0 +1,32 @@
+# Xcode
+xcuserdata/
+*.xcuserstate
+*.xcuserdatad/
+*.xcworkspace/xcuserdata/
+**/.DS_Store
+
+# Build artefacts
+build/
+DerivedData/
+*.xcarchive/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.swiftpm/
+Package.resolved
+.build/
+
+# CocoaPods (falls je verwendet)
+Pods/
+
+# Python (für scripts/)
+__pycache__/
+*.pyc
+
+# Misc
+.DS_Store
+Thumbs.db
+*.swp
+*~

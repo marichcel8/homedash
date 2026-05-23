@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeDash – Apple Home auf dem Apple TV</title>
+    <meta name="description" content="HomeDash macht den Apple TV zur Schaltzentrale deines Apple Home. Lichter, Thermostate, Schlösser und Szenen — alles in einem klaren Dashboard.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
+    <style>
+        :root {
+            --bg: #0a0a0c;
+            --bg-2: #16161a;
+            --fg: #f5f5f7;
+            --fg-dim: #98989d;
+            --accent: #0a84ff;
+            --accent-2: #5e5ce6;
+            --radius: 16px;
+            --max: 980px;
+        }
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #f5f5f7;
+                --bg-2: #ffffff;
+                --fg: #1d1d1f;
+                --fg-dim: #6e6e73;
+            }
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--bg);
+            color: var(--fg);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+        nav {
+            position: sticky; top: 0;
+            backdrop-filter: saturate(180%) blur(20px);
+            background: color-mix(in srgb, var(--bg) 80%, transparent);
+            border-bottom: 1px solid color-mix(in srgb, var(--fg) 10%, transparent);
+            z-index: 100;
+        }
+        nav .container {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 12px 24px;
+        }
+        nav .brand { font-weight: 700; font-size: 18px; }
+        nav ul { display: flex; gap: 28px; list-style: none; }
+        nav a { color: var(--fg-dim); text-decoration: none; font-size: 15px; transition: color .15s; }
+        nav a:hover { color: var(--fg); }
+        .hero {
+            text-align: center;
+            padding: 100px 24px 80px;
+            background: radial-gradient(ellipse at top,
+                color-mix(in srgb, var(--accent) 18%, transparent), transparent 60%);
+        }
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 72px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--fg), var(--fg-dim));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p.lead {
+            font-size: clamp(18px, 2.2vw, 24px);
+            color: var(--fg-dim);
+            max-width: 640px;
+            margin: 0 auto 40px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: color-mix(in srgb, var(--accent) 18%, transparent);
+            color: var(--accent);
+            border-radius: 99px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 0.02em;
+        }
+        section { padding: 80px 0; }
+        section h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        section .subtitle {
+            color: var(--fg-dim);
+            text-align: center;
+            margin-bottom: 56px;
+            font-size: 18px;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .feature {
+            background: var(--bg-2);
+            padding: 32px;
+            border-radius: var(--radius);
+            border: 1px solid color-mix(in srgb, var(--fg) 6%, transparent);
+        }
+        .feature .icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+        .feature h3 { font-size: 20px; margin-bottom: 8px; }
+        .feature p { color: var(--fg-dim); font-size: 15px; }
+        .privacy-callout {
+            background: linear-gradient(135deg,
+                color-mix(in srgb, var(--accent) 12%, var(--bg-2)),
+                var(--bg-2));
+            padding: 48px;
+            border-radius: 24px;
+            text-align: center;
+            border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+        }
+        .privacy-callout .lock { font-size: 48px; margin-bottom: 16px; }
+        .privacy-callout h3 { font-size: 24px; margin-bottom: 8px; }
+        .privacy-callout p { color: var(--fg-dim); max-width: 540px; margin: 0 auto; }
+        footer {
+            padding: 56px 0;
+            border-top: 1px solid color-mix(in srgb, var(--fg) 8%, transparent);
+            text-align: center;
+            color: var(--fg-dim);
+            font-size: 14px;
+        }
+        footer a { color: var(--fg-dim); margin: 0 16px; text-decoration: none; }
+        footer a:hover { color: var(--fg); }
+        .disclaimer { margin-top: 24px; font-size: 12px; opacity: .7; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="brand">HomeDash</div>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#privacy">Privacy</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="privacy.html">Datenschutz</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <span class="badge">Für tvOS 17+</span>
+            <h1>Dein Apple Home<br>auf dem Fernseher.</h1>
+            <p class="lead">HomeDash macht den Apple TV zur Schaltzentrale deines Zuhauses. Lichter, Thermostate, Schlösser und Szenen — alles in einem klaren Dashboard.</p>
+        </div>
+    </header>
+
+    <section id="features">
+        <div class="container">
+            <h2>Alles im Blick. Alles steuerbar.</h2>
+            <p class="subtitle">Mit der Siri Remote in Sekunden zum richtigen Gerät.</p>
+            <div class="features">
+                <div class="feature">
+                    <span class="icon">💡</span>
+                    <h3>Lichter</h3>
+                    <p>Dimmen, Farbe ändern, Farbtemperatur anpassen. Live-Updates für alle deine Lampen.</p>
+                </div>
+                <div class="feature">
+                    <span class="icon">🌡️</span>
+                    <h3>Thermostate</h3>
+                    <p>Zieltemperatur einstellen, Modi wechseln. Heizen, Kühlen, Auto — alles drin.</p>
+                </div>
+                <div class="feature">
+                    <span class="icon">🔒</span>
+                    <h3>Schlösser & Türen</h3>
+                    <p>Status auf einen Blick, Verriegeln und Entriegeln direkt vom Sofa.</p>
+                </div>
+                <div class="feature">
+                    <span class="icon">💨</span>
+                    <h3>Klima & Luft</h3>
+                    <p>Lüfter, Klimaanlagen, Luftreiniger und Befeuchter mit Stufen-Slidern.</p>
+                </div>
+                <div class="feature">
+                    <span class="icon">🎬</span>
+                    <h3>Szenen</h3>
+                    <p>Eine Aktion, viele Geräte. Deine eigenen Szenen oben auf dem Dashboard.</p>
+                </div>
+                <div class="feature">
+                    <span class="icon">⭐</span>
+                    <h3>Favoriten</h3>
+                    <p>Die Geräte, die du am häufigsten brauchst, direkt oben angepinnt.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="privacy">
+        <div class="container">
+            <div class="privacy-callout">
+                <div class="lock">🔐</div>
+                <h3>Komplett lokal. Punkt.</h3>
+                <p>HomeDash verarbeitet alles auf deinem Apple TV. Keine Analytics, kein Tracking, keine Werbung, keine Cloud. Die App nutzt ausschließlich Apples HomeKit-Framework — wie die Home-App selbst.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <a href="privacy.html">Datenschutz</a>
+            <a href="support.html">Support</a>
+            <a href="imprint.html">Impressum</a>
+            <a href="mailto:marsoen@outlook.de">Kontakt</a>
+            <p class="disclaimer">
+                Apple Home, HomeKit, Apple TV, Siri Remote und iCloud sind Marken der Apple Inc.<br>
+                HomeDash ist eine unabhängige App und nicht mit Apple Inc. verbunden.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
