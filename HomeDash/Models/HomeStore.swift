@@ -33,11 +33,13 @@ final class HomeStore {
     private let manager = HMHomeManager()
     private let managerDelegate = HomeManagerDelegateProxy()
     private let accessoryDelegate = AccessoryDelegateProxy()
+    private let homeDelegate = HomeDelegateProxy()
     private let log = Logger(subsystem: "de.marcel.homedash", category: "HomeStore")
 
     init() {
         managerDelegate.owner = self
         accessoryDelegate.owner = self
+        homeDelegate.owner = self
         manager.delegate = managerDelegate
         authorizationStatus = manager.authorizationStatus
         ingest(homes: manager.homes, enableNotifications: false)
@@ -243,12 +245,22 @@ final class HomeStore {
         bumpRevision(for: accessory)
     }
 
+    /// Wird vom HMHomeDelegate-Proxy aufgerufen, wenn sich INNERHALB eines
+    /// Homes etwas ändert (Accessory hinzu/entfernt, umbenannt, neuer Raum…).
+    /// Wir machen einen kompletten Re-Ingest mit dem aktuellen Snapshot,
+    /// damit Bridges/Notifications korrekt neu angemeldet werden.
+    fileprivate func homeContentChanged() {
+        ingest(homes: manager.homes, enableNotifications: true)
+    }
+
     // MARK: - Helpers
     private func ingest(homes list: [HMHome], enableNotifications: Bool) {
         homes = list.sorted { $0.name < $1.name }
         isLoaded = true
         stateRevision &+= 1
         for home in list {
+            // Home-Delegate: für Add/Remove/Rename von Accessories, Räumen, Szenen
+            home.delegate = homeDelegate
             for accessory in home.accessories {
                 accessory.delegate = accessoryDelegate
             }
@@ -331,5 +343,55 @@ private final class AccessoryDelegateProxy: NSObject, HMAccessoryDelegate {
 
     nonisolated func accessoryDidUpdateName(_ accessory: HMAccessory) {
         Task { @MainActor [weak owner] in owner?.accessoryDidUpdate(accessory) }
+    }
+}
+
+/// Hört auf Änderungen innerhalb eines Homes (Accessories, Räume, Szenen, Namen).
+/// Damit reagiert die App live auf Re-Pairing oder Add/Remove von Geräten in der
+/// Home-App auf iPhone/iPad, ohne dass der User die Berechtigung neu erteilen muss.
+private final class HomeDelegateProxy: NSObject, HMHomeDelegate {
+    weak var owner: HomeStore?
+
+    nonisolated func home(_ home: HMHome, didAdd accessory: HMAccessory) {
+        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
+    }
+    nonisolated func home(_ home: HMHome, didRemove accessory: HMAccessory) {
+        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
+    }
+    nonisolated func home(_ home: HMHome, didUpdate name: String) {
+        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
+    }
+    nonisolated func home(_ home: HMHome, didUpdateNameFor accessory: HMAccessory) {
+        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
+    }
+    nonisolated func home(_ home: HMHome, didUpdateRoom room: HMRoom, for accessory: HMAccessory) {
+        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
+    }
+    nonisolated func home(_ home: HMHome, didAdd room: HMRoom) {
+        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
+    }
+    nonisolated func home(_ home: HMHome, didRemove room: HMRoom) {
+        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
+    }
+    nonisolated func home(_ home: HMHome, didUpdateNameFor room: HMRoom) {
+        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
+    }
+    nonisolated func home(_ home: HMHome, didAdd actionSet: HMActionSet) {
+        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
+    }
+    nonisolated func home(_ home: HMHome, didRemove actionSet: HMActionSet) {
+        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
+    }
+    nonisolated func home(_ home: HMHome, didUpdateNameFor actionSet: HMActionSet) {
+        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
+    }
+    nonisolated func home(_ home: HMHome, didUpdateActionsFor actionSet: HMActionSet) {
+        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
+    }
+    nonisolated func home(_ home: HMHome, didUnblockAccessory accessory: HMAccessory) {
+        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
+    }
+    nonisolated func home(_ home: HMHome, didEncounterError error: Error, for accessory: HMAccessory) {
+        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
     }
 }
