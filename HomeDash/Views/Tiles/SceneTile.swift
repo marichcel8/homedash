@@ -28,7 +28,7 @@ struct SceneTile: View {
                         .font(HomeDesign.sceneTitleFont)
                         .foregroundStyle(.primary)
                         .lineLimit(1)
-                    Text("\(scene.actions.count) " + (scene.actions.count == 1 ? "Aktion" : "Aktionen"))
+                    Text(actionsText)
                         .font(.system(size: 20))
                         .foregroundStyle(.secondary)
                 }
@@ -44,6 +44,14 @@ struct SceneTile: View {
         .accessibilityLabel(Text(scene.name))
         .accessibilityHint(Text("a11y.scene.run", bundle: .main))
         .accessibilityAddTraits(.isButton)
+    }
+
+    private var actionsText: String {
+        let count = scene.actions.count
+        if count == 1 {
+            return NSLocalizedString("scene.actions.singular", comment: "")
+        }
+        return String(format: NSLocalizedString("scene.actions.plural %@", comment: ""), "\(count)")
     }
 
     private func symbolForScene() -> String {

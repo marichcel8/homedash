@@ -76,6 +76,6 @@ technical framework reference where appropriate. The app **does not** use the
 If anything is unclear or the build needs additional context:
 
 - **Email:** marsoen@outlook.de
-- **Support page:** [URL after listing is live]
+- **Support page:** https://marichcel8.github.io/homedash/support.html
 
 Thank you for the review.

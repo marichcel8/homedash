@@ -204,7 +204,9 @@ final class HomeStore {
         await withCheckedContinuation { (cont: CheckedContinuation<Void, Never>) in
             char.writeValue(value) { [weak self] error in
                 if let error {
-                    self?.log.error("\(label, privacy: .public): \(error.localizedDescription, privacy: .public)")
+                    // PII-safe Logging: technical label ist public, error message ist
+                    // private (kann u.U. Accessory-Namen oder Pfade enthalten).
+                    self?.log.error("\(label, privacy: .public): \(error.localizedDescription, privacy: .private)")
                     Task { @MainActor in self?.lastError = error.localizedDescription }
                 }
                 cont.resume()

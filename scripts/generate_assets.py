@@ -138,7 +138,7 @@ def make_front(size):
     return img
 
 
-def write_icon_stack(stack_dir, size):
+def write_icon_stack(stack_dir, size, with_2x=False):
     back = make_back(size)
     middle = make_middle(size)
     front = make_front(size)
@@ -149,6 +149,19 @@ def write_icon_stack(stack_dir, size):
     front.save(os.path.join(stack_dir, "Front.imagestacklayer", "Content.imageset", "Front.png"),
                format="PNG", optimize=True)
     print(f"  → wrote layers {size} into {os.path.basename(stack_dir)}")
+
+    if with_2x:
+        size_2x = (size[0] * 2, size[1] * 2)
+        back2 = make_back(size_2x)
+        middle2 = make_middle(size_2x)
+        front2 = make_front(size_2x)
+        back2.save(os.path.join(stack_dir, "Back.imagestacklayer", "Content.imageset", "Back@2x.png"),
+                   format="PNG", optimize=True)
+        middle2.save(os.path.join(stack_dir, "Middle.imagestacklayer", "Content.imageset", "Middle@2x.png"),
+                     format="PNG", optimize=True)
+        front2.save(os.path.join(stack_dir, "Front.imagestacklayer", "Content.imageset", "Front@2x.png"),
+                    format="PNG", optimize=True)
+        print(f"  → wrote @2x layers {size_2x}")
 
 
 def make_top_shelf(size):
@@ -180,13 +193,13 @@ def make_launch(size):
 
 
 def main():
-    # App Icon - Small: 400×240
+    # App Icon - Small: 400×240 @1x + 800×480 @2x (App Store-Pflicht)
     small = os.path.join(BRAND, "App Icon - Small.imagestack")
-    write_icon_stack(small, (400, 240))
+    write_icon_stack(small, (400, 240), with_2x=True)
 
-    # App Icon - Large: 1280×768
+    # App Icon - Large: 1280×768 @1x + 2560×1536 @2x (App Store-Pflicht)
     large = os.path.join(BRAND, "App Icon - Large.imagestack")
-    write_icon_stack(large, (1280, 768))
+    write_icon_stack(large, (1280, 768), with_2x=True)
 
     # Top Shelf 1920×720 + @2x 3840×1440
     ts_dir = os.path.join(BRAND, "Top Shelf Image.imageset")

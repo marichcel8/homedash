@@ -13,6 +13,7 @@
 "permission.restricted.body" = "On your Apple TV open Settings → Apps → HomeDash and grant access to Apple Home.";
 "permission.determined.title" = "No response from Apple Home";
 "permission.determined.body" = "Make sure this Apple TV is signed in to the same iCloud account where your home is set up.";
+"permission.settings.path" = "Settings → Apps → HomeDash → Apple Home";
 
 /* Empty States */
 "empty.noHomes.title" = "No home found";
@@ -23,8 +24,6 @@
 /* Dashboard */
 "dashboard.scenes" = "Scenes";
 "dashboard.favorites" = "Favorites";
-"dashboard.allRooms" = "All Rooms";
-"dashboard.reload" = "Reload";
 "dashboard.home.picker" = "Switch home";
 
 /* Status Texts */
@@ -40,13 +39,18 @@
 "status.heating %@" = "Heating to %@°";
 "status.cooling %@" = "Cooling to %@°";
 "status.temperature %@" = "%@°";
-"status.fan.speed %@" = "On · Speed %@";
+"status.ready" = "Ready";
 "status.notResponding" = "Not responding";
 "status.detected" = "Detected";
 "status.idle" = "Idle";
 
 /* Detail Sheets */
 "detail.brightness" = "Brightness";
+"detail.intensity" = "Intensity";
+"detail.position" = "Position";
+"detail.targetHumidity" = "Target Humidity";
+"detail.color" = "Color";
+"detail.saturation" = "Saturation";
 "detail.colorTemperature" = "Color Temperature";
 "detail.warm" = "Warm";
 "detail.cool" = "Cool";
@@ -60,6 +64,14 @@
 "detail.lock" = "Lock";
 "detail.unlock" = "Unlock";
 "detail.close" = "Close";
+
+/* Favorites */
+"favorite.add" = "Add to Favorites";
+"favorite.remove" = "Remove from Favorites";
+
+/* Scene */
+"scene.actions.singular" = "1 action";
+"scene.actions.plural %@" = "%@ actions";
 
 /* Accessibility */
 "a11y.tile.toggle" = "Double-tap to toggle";

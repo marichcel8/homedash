@@ -15,7 +15,7 @@ struct ColorPickerGrid: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 24) {
-            Text("Farbe")
+            Text("detail.color", bundle: .main)
                 .font(HomeDesign.sectionFont)
                 .foregroundStyle(.primary)
 
@@ -31,7 +31,7 @@ struct ColorPickerGrid: View {
                 }
             }
 
-            Text("Sättigung")
+            Text("detail.saturation", bundle: .main)
                 .font(HomeDesign.tileTitleFont)
                 .foregroundStyle(.secondary)
                 .padding(.top, 8)

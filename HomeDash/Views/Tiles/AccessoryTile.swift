@@ -61,7 +61,12 @@ struct AccessoryTile: View {
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(Text(accessory.name))
         .accessibilityValue(Text(statusText))
-        .accessibilityHint(Text("a11y.tile.openDetail", bundle: .main))
+        // Hint richtet sich nach Tap-Verhalten: bei togglebaren Geräten
+        // ist der primäre Tap = umschalten, sonst = Detail öffnen.
+        .accessibilityHint(Text(accessory.hasTogglableSwitch
+                                ? "a11y.tile.toggle"
+                                : "a11y.tile.openDetail",
+                                bundle: .main))
         .accessibilityAddTraits(.isButton)
         .sheet(isPresented: $showDetail) {
             AccessoryDetailSheet(accessory: accessory)

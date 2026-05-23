@@ -27,7 +27,7 @@ struct PermissionView: View {
 
             HStack(spacing: 16) {
                 Image(systemName: "gear")
-                Text("Settings → Apps → HomeDash → HomeKit")
+                Text("permission.settings.path", bundle: .main)
             }
             .font(.system(size: 28, weight: .medium, design: .monospaced))
             .padding(.horizontal, 32)

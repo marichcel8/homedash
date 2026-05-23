@@ -1,7 +1,7 @@
 # Datenschutzerklärung – HomeDash
 
 **Stand:** 23. Mai 2026
-**Verantwortlich:** Marcel Sön — marsoen@outlook.de
+**Verantwortlicher:** Marcel Söndenaa-Defourny, Muldentalstraße 100, 04288 Leipzig, Deutschland — marsoen@outlook.de
 
 HomeDash ist eine native tvOS-App, die deine Apple-Home-Geräte als Dashboard auf
 dem Apple TV anzeigt und steuerbar macht. Diese Datenschutzerklärung beschreibt,
@@ -66,9 +66,21 @@ Beim Deinstallieren löscht tvOS alle App-Daten automatisch.
 
 ## 8. Deine Rechte (DSGVO)
 
-Da HomeDash keine Daten erhebt oder verarbeitet, die mich erreichen, gibt es
-keine personenbezogenen Daten, die ich auskunftspflichtig, korrigier- oder
-löschpflichtig vorhalten könnte. Bei Fragen wende dich an marsoen@outlook.de.
+Da HomeDash keine personenbezogenen Daten erhebt oder an mich übermittelt, gibt
+es de facto keine bei mir vorgehaltenen Daten. Dir stehen aus Art. 13 ff. DSGVO
+dennoch grundsätzlich die folgenden Rechte zu:
+
+- **Auskunft** (Art. 15) — welche Daten ggf. verarbeitet werden
+- **Berichtigung** (Art. 16) — unrichtige Daten korrigieren lassen
+- **Löschung** (Art. 17) — „Recht auf Vergessenwerden"
+- **Einschränkung der Verarbeitung** (Art. 18)
+- **Datenübertragbarkeit** (Art. 20)
+- **Widerspruch** gegen Verarbeitung (Art. 21)
+- **Beschwerde bei einer Aufsichtsbehörde** (Art. 77) — für mich zuständig:
+  Sächsischer Datenschutzbeauftragter,
+  <https://www.saechsdsb.de>
+
+Bei Fragen wende dich an marsoen@outlook.de.
 
 ## 9. Änderungen dieser Erklärung
 
@@ -78,5 +90,8 @@ abrufbar.
 
 ## 10. Kontakt
 
-Marcel Sön
+Marcel Söndenaa-Defourny
+Muldentalstraße 100
+04288 Leipzig (Leipzig-Liebertwolkwitz)
+Deutschland
 E-Mail: marsoen@outlook.de

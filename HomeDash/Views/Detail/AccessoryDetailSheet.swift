@@ -120,7 +120,7 @@ private struct FavoriteStarButton: View {
             .frame(width: 80, height: 80)
             .focusableTap(isFocused: $isFocused) { favorites.toggle(uuid) }
             .focusOutlineCircle(isFocused: isFocused)
-            .accessibilityLabel(Text(isFav ? "Aus Favoriten entfernen" : "Zu Favoriten hinzufügen"))
+            .accessibilityLabel(Text(isFav ? "favorite.remove" : "favorite.add", bundle: .main))
     }
 }
 

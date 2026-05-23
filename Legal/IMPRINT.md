@@ -4,7 +4,7 @@ Angaben gemäß § 5 TMG.
 
 ## Anbieter
 
-Marcel Sön
+Marcel Söndenaa-Defourny
 Muldentalstraße 100
 04288 Leipzig (Leipzig-Liebertwolkwitz)
 Deutschland
@@ -13,15 +13,11 @@ Deutschland
 
 E-Mail: marsoen@outlook.de
 
-## Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
+## Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
 
-Marcel Sön (Anschrift wie oben).
+Marcel Söndenaa-Defourny (Anschrift wie oben).
 
-## Streitschlichtung
-
-Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS)
-bereit: <https://ec.europa.eu/consumers/odr/>. Meine E-Mail-Adresse findest du
-oben im Impressum.
+## Verbraucherstreitbeilegung
 
 Ich bin nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
 Verbraucherschlichtungsstelle teilzunehmen.
@@ -39,4 +35,3 @@ forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
 Apple, Apple Home, HomeKit, Apple TV, iCloud und Siri Remote sind eingetragene
 Marken der Apple Inc. HomeDash ist eine unabhängige Anwendung und steht in
 keinerlei Verbindung zu Apple Inc.
-

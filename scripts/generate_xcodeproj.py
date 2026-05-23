@@ -132,7 +132,7 @@ target_common = {
     "GENERATE_INFOPLIST_FILE": "NO",
     "INFOPLIST_FILE": "HomeDash/Info.plist",
     "INFOPLIST_KEY_CFBundleDisplayName": "HomeDash",
-    "INFOPLIST_KEY_UIUserInterfaceStyle": "Dark",
+    "INFOPLIST_KEY_UIUserInterfaceStyle": "Automatic",
     "LD_RUNPATH_SEARCH_PATHS": ["$(inherited)", "@executable_path/Frameworks"],
     "MARKETING_VERSION": "1.0.0",
     "PRODUCT_BUNDLE_IDENTIFIER": "de.marcel.homedash",
