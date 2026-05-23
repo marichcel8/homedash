@@ -26,20 +26,20 @@ Geschätzte Gesamtzeit: **3-4 Stunden Arbeit + 1-2 Wochen Wartezeit auf Apple**.
 
 ## Phase 2 – Hosting für Pflicht-URLs (20 Min)
 
-- [ ] **GitHub-Repo anlegen** (public): `https://github.com/marsoen/homedash`
+- [ ] **GitHub-Repo anlegen** (public): `https://github.com/marichcel8/homedash`
 - [ ] **Code pushen:**
   ```bash
   cd "/Users/marcel/TvOS Homekit anbindungsapp"
   git init && git add . && git commit -m "Initial release"
-  git remote add origin https://github.com/marsoen/homedash.git
+  git remote add origin https://github.com/marichcel8/homedash.git
   git push -u origin main
   ```
 - [ ] **GitHub Pages aktivieren:** Repo → Settings → Pages → Source = `main` branch, Folder = `/docs` → Save.
 - [ ] **Nach ~1 Min URLs testen:**
-  - `https://marsoen.github.io/homedash/`
-  - `https://marsoen.github.io/homedash/privacy.html`
-  - `https://marsoen.github.io/homedash/support.html`
-  - `https://marsoen.github.io/homedash/imprint.html`
+  - `https://marichcel8.github.io/homedash/`
+  - `https://marichcel8.github.io/homedash/privacy.html`
+  - `https://marichcel8.github.io/homedash/support.html`
+  - `https://marichcel8.github.io/homedash/imprint.html`
 
 ## Phase 3 – Self-Test auf Apple TV (1-3 Tage)
 
@@ -75,9 +75,9 @@ Quelle für alle Texte: `Legal/APPSTORE_LISTING.md`.
 - [ ] **App-Informationen:**
   - [ ] Subtitle, Promotional Text, Description (DE + EN)
   - [ ] Keywords
-  - [ ] Support-URL: `https://marsoen.github.io/homedash/support.html`
-  - [ ] Marketing-URL: `https://marsoen.github.io/homedash/`
-  - [ ] Privacy Policy URL: `https://marsoen.github.io/homedash/privacy.html`
+  - [ ] Support-URL: `https://marichcel8.github.io/homedash/support.html`
+  - [ ] Marketing-URL: `https://marichcel8.github.io/homedash/`
+  - [ ] Privacy Policy URL: `https://marichcel8.github.io/homedash/privacy.html`
   - [ ] Category: Lifestyle (primary) + Utilities (secondary)
   - [ ] Age Rating: 4+ (keine bedenklichen Inhalte)
   - [ ] Content Rights: „Does not contain third-party content"

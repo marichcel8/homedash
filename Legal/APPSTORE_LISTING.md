@@ -156,20 +156,20 @@ home,smart,dashboard,lights,thermostat,scenes,remote,siri,control,room
 ## Support URL
 
 ```
-https://github.com/marsoen/homedash/blob/main/SUPPORT.md
+https://github.com/marichcel8/homedash/blob/main/SUPPORT.md
 ```
 (GitHub-Repo anlegen und SUPPORT.md hochladen. Alternative: Notion-Seite oder eigene Subdomain.)
 
 ## Marketing URL (optional)
 
 ```
-https://github.com/marsoen/homedash
+https://github.com/marichcel8/homedash
 ```
 
 ## Privacy Policy URL (PFLICHT)
 
 ```
-https://github.com/marsoen/homedash/blob/main/PRIVACY.md
+https://github.com/marichcel8/homedash/blob/main/PRIVACY.md
 ```
 
 ## Age Rating
