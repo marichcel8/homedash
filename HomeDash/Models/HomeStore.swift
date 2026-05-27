@@ -7,6 +7,21 @@ import os
 @MainActor
 @Observable
 final class HomeStore {
+
+    /// Transienter Fehler aus einem Write- oder Scene-Lauf. Wird vom
+    /// `ErrorToast` am oberen Rand des Dashboards gezeigt und nach Anzeige
+    /// oder erfolgreichem Folge-Write gelöscht. Jede Instanz hat eine neue
+    /// `id`, damit derselbe Fehlertext eine erneute Toast-Animation auslöst.
+    struct ErrorEvent: Equatable, Identifiable {
+        let id: UUID = UUID()
+        let accessoryName: String?
+        let actionLabel: String
+        let message: String
+        let timestamp: Date = Date()
+
+        static func == (lhs: ErrorEvent, rhs: ErrorEvent) -> Bool { lhs.id == rhs.id }
+    }
+
     // MARK: - Public State
     private(set) var homes: [HMHome] = []
     var selectedHomeID: UUID? {
@@ -14,7 +29,17 @@ final class HomeStore {
     }
     private(set) var authorizationStatus: HMHomeManagerAuthorizationStatus = []
     private(set) var isLoaded: Bool = false
-    private(set) var lastError: String?
+
+    /// Aktuell anzuzeigender Toast-Fehler. `nil` heißt: nichts anzeigen.
+    /// Wird durch `clearError()` (Toast-Dismiss) oder einen erfolgreichen
+    /// Folge-Write geleert.
+    private(set) var lastError: ErrorEvent?
+
+    /// Per-Accessory-Set: enthält UUIDs aller Geräte, deren *letzter* Write
+    /// fehlgeschlagen ist und seitdem weder erneuert wurde noch sich die
+    /// Reachability verbessert hat. Das Tile zeigt für diese Geräte ein
+    /// Warnsymbol oben rechts.
+    private(set) var accessoriesWithRecentFailure: Set<UUID> = []
 
     /// Strukturelle Revision – nur Home-Wechsel / Add / Remove.
     private(set) var stateRevision: UInt = 0
@@ -28,6 +53,15 @@ final class HomeStore {
     func revision(for accessory: HMAccessory) -> UInt {
         accessoryRevisions[accessory.uniqueIdentifier] ?? 0
     }
+
+    /// Hat das Accessory beim letzten Write-Versuch einen Fehler geliefert?
+    /// Tile-View nutzt das für den Warning-Badge.
+    func didRecentlyFail(_ uuid: UUID) -> Bool {
+        accessoriesWithRecentFailure.contains(uuid)
+    }
+
+    /// Vom `ErrorToast` aufgerufen, wenn er sich selbst dismissed.
+    func clearError() { lastError = nil }
 
     // MARK: - Internals
     private let manager = HMHomeManager()
@@ -187,14 +221,16 @@ final class HomeStore {
 
     func run(_ scene: HMActionSet) async {
         guard let home = currentHome else { return }
-        await withCheckedContinuation { (cont: CheckedContinuation<Void, Never>) in
-            home.executeActionSet(scene) { [weak self] error in
-                if let error {
-                    self?.log.error("Szene: \(error.localizedDescription, privacy: .public)")
-                    Task { @MainActor in self?.lastError = error.localizedDescription }
-                }
-                cont.resume()
-            }
+        let error: Error? = await withCheckedContinuation { (cont: CheckedContinuation<Error?, Never>) in
+            home.executeActionSet(scene) { err in cont.resume(returning: err) }
+        }
+        if let error {
+            log.error("Szene: \(error.localizedDescription, privacy: .private)")
+            lastError = ErrorEvent(
+                accessoryName: nil,
+                actionLabel: scene.name,
+                message: error.friendlyHomeKitDescription
+            )
         }
         // Szenen ändern oft mehrere Geräte -> alle bumpen
         for acc in allAccessoriesInHome() { bumpRevision(for: acc) }
@@ -203,20 +239,34 @@ final class HomeStore {
     // MARK: - Internal write
     private func write(_ char: HMCharacteristic, value: Any,
                        for accessory: HMAccessory, label: String) async {
-        await withCheckedContinuation { (cont: CheckedContinuation<Void, Never>) in
-            char.writeValue(value) { [weak self] error in
-                if let error {
-                    // PII-safe Logging: technical label ist public, error message ist
-                    // private (kann u.U. Accessory-Namen oder Pfade enthalten).
-                    self?.log.error("\(label, privacy: .public): \(error.localizedDescription, privacy: .private)")
-                    Task { @MainActor in self?.lastError = error.localizedDescription }
-                }
-                cont.resume()
-            }
+        // Continuation returnt den Error direkt, statt ihn via Closure-Capture
+        // weiterzureichen. Nach `await` sind wir wieder auf dem MainActor und
+        // können `lastError` / `accessoriesWithRecentFailure` direkt mutieren.
+        let error: Error? = await withCheckedContinuation { (cont: CheckedContinuation<Error?, Never>) in
+            char.writeValue(value) { err in cont.resume(returning: err) }
+        }
+        if let error {
+            // PII-safe Logging: label public, message private (kann Accessory-Pfade enthalten).
+            log.error("\(label, privacy: .public): \(error.localizedDescription, privacy: .private)")
+            recordFailure(error: error, label: label, for: accessory)
+        } else {
+            // Erfolgs-Pfad: Failure-Marker für dieses Accessory aufräumen.
+            // Globalen Toast NICHT automatisch leeren — der Nutzer hat ihn evtl. noch
+            // nicht gelesen. Der Toast dismissed sich selbst nach 5 s.
+            accessoriesWithRecentFailure.remove(accessory.uniqueIdentifier)
         }
         // Optimistic UI: SwiftUI re-rendert nur das eine Tile, weil
         // accessoryRevisions[uuid] sich ändert.
         bumpRevision(for: accessory)
+    }
+
+    private func recordFailure(error: Error, label: String, for accessory: HMAccessory) {
+        lastError = ErrorEvent(
+            accessoryName: accessory.name,
+            actionLabel: label,
+            message: error.friendlyHomeKitDescription
+        )
+        accessoriesWithRecentFailure.insert(accessory.uniqueIdentifier)
     }
 
     private func bumpRevision(for accessory: HMAccessory) {
@@ -242,6 +292,11 @@ final class HomeStore {
     }
 
     fileprivate func accessoryDidUpdate(_ accessory: HMAccessory) {
+        // Wenn das Gerät wieder erreichbar ist, war ein vorheriger Fehler
+        // vermutlich nur ein Reachability-Problem -> Warning-Badge wegnehmen.
+        if accessory.isReachable {
+            accessoriesWithRecentFailure.remove(accessory.uniqueIdentifier)
+        }
         bumpRevision(for: accessory)
     }
 

@@ -26,6 +26,7 @@ struct AccessoryTile: View {
     @State private var symbolName: String = "app.dashed"
     @State private var accent: Color = .gray
     @State private var isReachable: Bool = true
+    @State private var hasRecentFailure: Bool = false
 
     var body: some View {
         TileShell(
@@ -51,6 +52,14 @@ struct AccessoryTile: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
+        // Offline-Geräte werden zusätzlich gedimmt, damit auf einen Blick
+        // klar ist warum sie nicht reagieren. Warning-Badge hat Vorrang über
+        // Offline-Badge (typischer Fall: Write schlug fehl, deshalb wurde
+        // Reachability noch nicht aktualisiert).
+        .opacity(isReachable ? 1.0 : 0.55)
+        .overlay(alignment: .topTrailing) {
+            statusBadge
+        }
         .contentShape(RoundedRectangle(cornerRadius: HomeDesign.tileCornerRadius,
                                        style: .continuous))
         .focusable(true)
@@ -60,7 +69,7 @@ struct AccessoryTile: View {
         .onPlayPauseCommand(perform: openDetail)
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(Text(accessory.name))
-        .accessibilityValue(Text(statusText))
+        .accessibilityValue(Text(accessibilityValueText))
         // Hint richtet sich nach Tap-Verhalten: bei togglebaren Geräten
         // ist der primäre Tap = umschalten, sonst = Detail öffnen.
         .accessibilityHint(Text(accessory.hasTogglableSwitch
@@ -76,6 +85,37 @@ struct AccessoryTile: View {
         .onChange(of: store.revision(for: accessory)) { _, _ in
             syncFromAccessory()
         }
+    }
+
+    @ViewBuilder private var statusBadge: some View {
+        if hasRecentFailure {
+            Image(systemName: "exclamationmark.triangle.fill")
+                .font(.system(size: 18, weight: .bold))
+                .foregroundStyle(.white)
+                .frame(width: 32, height: 32)
+                .background(Color.orange, in: Circle())
+                .padding(14)
+                .accessibilityHidden(true)
+        } else if !isReachable {
+            Image(systemName: "wifi.slash")
+                .font(.system(size: 16, weight: .bold))
+                .foregroundStyle(.white)
+                .frame(width: 32, height: 32)
+                .background(Color.gray.opacity(0.85), in: Circle())
+                .padding(14)
+                .accessibilityHidden(true)
+        }
+    }
+
+    private var accessibilityValueText: String {
+        var parts: [String] = []
+        if !statusText.isEmpty { parts.append(statusText) }
+        if hasRecentFailure {
+            parts.append(NSLocalizedString("a11y.tile.recentError", comment: ""))
+        } else if !isReachable {
+            parts.append(NSLocalizedString("a11y.tile.offline", comment: ""))
+        }
+        return parts.joined(separator: ", ")
     }
 
     private var iconBubble: some View {
@@ -125,5 +165,6 @@ struct AccessoryTile: View {
         symbolName = accessory.sfSymbol
         accent = accessory.accentColor
         isReachable = accessory.isReachable
+        hasRecentFailure = store.didRecentlyFail(accessory.uniqueIdentifier)
     }
 }

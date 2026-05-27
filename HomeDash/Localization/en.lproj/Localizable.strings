@@ -77,3 +77,21 @@
 "a11y.tile.toggle" = "Double-tap to toggle";
 "a11y.tile.openDetail" = "Long press for details";
 "a11y.scene.run" = "Double-tap to run scene";
+"a11y.tile.offline" = "Device not reachable";
+"a11y.tile.recentError" = "Last command failed";
+
+/* Error Toast */
+"error.toast.title %@" = "%@ — Error";
+"error.toast.titleGeneric" = "Error";
+
+/* Error Messages (actionable user-facing text) */
+"error.notReachable" = "Device offline. Check power and network.";
+"error.notWritable" = "This property is read-only.";
+"error.timeout" = "Timed out. Please try again.";
+"error.poweredOff" = "Device is powered off.";
+"error.notPermitted" = "Permission denied.";
+"error.notConfigured" = "Device is not fully set up yet.";
+"error.cancelled" = "Operation cancelled.";
+"error.busy" = "Device is busy.";
+"error.invalidValue" = "Invalid value.";
+"error.generic" = "Something went wrong.";

@@ -31,6 +31,15 @@ struct HomeDashboardView: View {
         // Einzelne Characteristic-Updates kommen über @Observable und resetten
         // die Scroll-Position NICHT mehr.
         .id(store.stateRevision)
+        // Transienter Error-Toast: wird vom HomeStore befüllt, dismissed sich
+        // selbst nach 5 s, kann jederzeit durch neuen Fehler ersetzt werden.
+        .overlay(alignment: .top) {
+            if let event = store.lastError {
+                ErrorToast(event: event) { store.clearError() }
+                    .padding(.top, 24)
+            }
+        }
+        .animation(.spring(response: 0.4, dampingFraction: 0.85), value: store.lastError)
     }
 
     private var currentHomeIsEmpty: Bool {

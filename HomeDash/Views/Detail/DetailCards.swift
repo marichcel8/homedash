@@ -108,7 +108,7 @@ struct RotationSpeedCard: View {
     @State private var speed: Double = 0
 
     var body: some View {
-        DetailCard(title: "Intensität") {
+        DetailCard(title: "detail.intensity") {
             TVSliderControl(
                 value: $speed, range: 0...100, step: 10,
                 accent: accessory.accentColor,
@@ -131,7 +131,7 @@ struct PositionCard: View {
     @State private var position: Double = 0
 
     var body: some View {
-        DetailCard(title: "Position") {
+        DetailCard(title: "detail.position") {
             TVSliderControl(
                 value: $position, range: 0...100, step: 10,
                 accent: accessory.accentColor,
@@ -151,7 +151,7 @@ struct TargetHumidityCard: View {
     @State private var humidity: Double = 50
 
     var body: some View {
-        DetailCard(title: "Ziel-Feuchtigkeit") {
+        DetailCard(title: "detail.targetHumidity") {
             TVSliderControl(
                 value: $humidity, range: 0...100, step: 5,
                 accent: accessory.accentColor,
@@ -326,7 +326,8 @@ struct StatusDisplayCard: View {
                     .font(.system(size: 64, weight: .bold, design: .rounded))
                     .foregroundStyle(.primary)
             } else {
-                Text(accessory.isReachable ? "Bereit" : NSLocalizedString("status.notResponding", comment: ""))
+                Text(NSLocalizedString(accessory.isReachable ? "status.ready" : "status.notResponding",
+                                       comment: ""))
                     .font(.system(size: 48, weight: .semibold, design: .rounded))
                     .foregroundStyle(.secondary)
             }

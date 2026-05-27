@@ -77,3 +77,21 @@
 "a11y.tile.toggle" = "Doppeltippen, um zu schalten";
 "a11y.tile.openDetail" = "Lang drücken für Details";
 "a11y.scene.run" = "Doppeltippen, um Szene zu starten";
+"a11y.tile.offline" = "Gerät nicht erreichbar";
+"a11y.tile.recentError" = "Letzter Befehl fehlgeschlagen";
+
+/* Error Toast */
+"error.toast.title %@" = "%@ – Fehler";
+"error.toast.titleGeneric" = "Fehler";
+
+/* Error Messages (lokalisiert, handlungsorientiert) */
+"error.notReachable" = "Gerät offline. Prüfe Strom und Netzwerk.";
+"error.notWritable" = "Diese Eigenschaft lässt sich nicht ändern.";
+"error.timeout" = "Zeitüberschreitung. Versuche es erneut.";
+"error.poweredOff" = "Gerät ist ausgeschaltet.";
+"error.notPermitted" = "Berechtigung fehlt.";
+"error.notConfigured" = "Gerät ist noch nicht vollständig eingerichtet.";
+"error.cancelled" = "Vorgang abgebrochen.";
+"error.busy" = "Gerät ist gerade beschäftigt.";
+"error.invalidValue" = "Ungültiger Wert.";
+"error.generic" = "Etwas hat nicht geklappt.";

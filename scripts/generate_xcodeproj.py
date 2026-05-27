@@ -24,6 +24,7 @@ SWIFT_FILES = [
     "Extensions/HMAccessory+Kind.swift",
     "Extensions/HMAccessory+State.swift",
     "Extensions/HMService+Helpers.swift",
+    "Extensions/HMError+Friendly.swift",
     "DesignSystem/DesignTokens.swift",
     "DesignSystem/AccessoryPalette.swift",
     "DesignSystem/TileStyle.swift",
@@ -38,6 +39,7 @@ SWIFT_FILES = [
     "Views/HomePickerView.swift",
     "Views/RoomSection.swift",
     "Views/ScenesSection.swift",
+    "Views/ErrorToast.swift",
     "Views/Tiles/AccessoryTile.swift",
     "Views/Tiles/SceneTile.swift",
     "Views/Detail/AccessoryDetailSheet.swift",
@@ -124,7 +126,7 @@ target_common = {
     "ASSETCATALOG_COMPILER_APPICON_NAME": "Brand Assets",
     "CODE_SIGN_ENTITLEMENTS": "HomeDash/HomeDash.entitlements",
     "CODE_SIGN_STYLE": "Automatic",
-    "CURRENT_PROJECT_VERSION": "3",
+    "CURRENT_PROJECT_VERSION": "4",
     # Inner quotes sind PFLICHT, weil Xcode den Wert sonst am Leerzeichen splittet.
     "DEVELOPMENT_ASSET_PATHS": '"HomeDash/Preview Content"',
     "DEVELOPMENT_TEAM": "JRKK5F6HH6",
@@ -313,6 +315,7 @@ out.extend(group_block(EXTENSIONS_GROUP_ID, "Extensions", [
     (file_ref_id("Extensions/HMAccessory+Kind.swift"), "HMAccessory+Kind.swift"),
     (file_ref_id("Extensions/HMAccessory+State.swift"), "HMAccessory+State.swift"),
     (file_ref_id("Extensions/HMService+Helpers.swift"), "HMService+Helpers.swift"),
+    (file_ref_id("Extensions/HMError+Friendly.swift"), "HMError+Friendly.swift"),
 ], path="Extensions"))
 
 # DesignSystem
@@ -348,6 +351,7 @@ out.extend(group_block(VIEWS_GROUP_ID, "Views", [
     (file_ref_id("Views/HomePickerView.swift"), "HomePickerView.swift"),
     (file_ref_id("Views/RoomSection.swift"), "RoomSection.swift"),
     (file_ref_id("Views/ScenesSection.swift"), "ScenesSection.swift"),
+    (file_ref_id("Views/ErrorToast.swift"), "ErrorToast.swift"),
     (VIEWS_TILES_GROUP_ID, "Tiles"),
     (VIEWS_DETAIL_GROUP_ID, "Detail"),
 ], path="Views"))

@@ -14,6 +14,7 @@
 		3E80E787CFF5796B2E2766EE /* HMAccessory+Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB7D3A7715A6882E4D5E7B /* HMAccessory+Kind.swift */; };
 		603A76833D66B12690DAB82D /* HMAccessory+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC333E5ED5E65F6468FFC1 /* HMAccessory+State.swift */; };
 		732645FAA531FDF445C14C37 /* HMService+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786311468DED6626052B176B /* HMService+Helpers.swift */; };
+		1FC9F7C3B1DC73E1105005A1 /* HMError+Friendly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1068A13BFD6FFDB9CA32E4A9 /* HMError+Friendly.swift */; };
 		95000705F54A3A0A54622342 /* DesignTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449ACB730333E8AE10B72359 /* DesignTokens.swift */; };
 		432D0E9330A5C517ECA7F8CC /* AccessoryPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5610E42780D2EBF641AD18 /* AccessoryPalette.swift */; };
 		5EAF64525AAC6F784C3CBB4F /* TileStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360DD73E21D687E780BCD91 /* TileStyle.swift */; };
@@ -28,6 +29,7 @@
 		38EC0E36825DD1BAAD70CD1B /* HomePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BE70065BC99A8A3B117DD4 /* HomePickerView.swift */; };
 		DCD6602FC8B16973AC047F96 /* RoomSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E291FE23E86766319454A /* RoomSection.swift */; };
 		35BB9C4ED2B7DE1E58F032C3 /* ScenesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169064ACDEEAE11A358276F /* ScenesSection.swift */; };
+		14ED032265A9BC90D506DA0A /* ErrorToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0FFA2A869259620CE76E4 /* ErrorToast.swift */; };
 		CB5E653ECA8043BE04AD2DA9 /* AccessoryTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B8ABB2751B76E188C757AF /* AccessoryTile.swift */; };
 		C463E0907C6503B9063EDCCD /* SceneTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9490F8C8BC669804A2E86DB8 /* SceneTile.swift */; };
 		D964E3E57DC3E76D653E4E80 /* AccessoryDetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC67DEA0E39A5E0F2CCB5D7E /* AccessoryDetailSheet.swift */; };
@@ -50,6 +52,7 @@
 		2DBB7D3A7715A6882E4D5E7B /* HMAccessory+Kind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HMAccessory+Kind.swift"; sourceTree = "<group>"; };
 		C2FC333E5ED5E65F6468FFC1 /* HMAccessory+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HMAccessory+State.swift"; sourceTree = "<group>"; };
 		786311468DED6626052B176B /* HMService+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HMService+Helpers.swift"; sourceTree = "<group>"; };
+		1068A13BFD6FFDB9CA32E4A9 /* HMError+Friendly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HMError+Friendly.swift"; sourceTree = "<group>"; };
 		449ACB730333E8AE10B72359 /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignTokens.swift"; sourceTree = "<group>"; };
 		5E5610E42780D2EBF641AD18 /* AccessoryPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccessoryPalette.swift"; sourceTree = "<group>"; };
 		6360DD73E21D687E780BCD91 /* TileStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TileStyle.swift"; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 		32BE70065BC99A8A3B117DD4 /* HomePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomePickerView.swift"; sourceTree = "<group>"; };
 		F10E291FE23E86766319454A /* RoomSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomSection.swift"; sourceTree = "<group>"; };
 		3169064ACDEEAE11A358276F /* ScenesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScenesSection.swift"; sourceTree = "<group>"; };
+		CCB0FFA2A869259620CE76E4 /* ErrorToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ErrorToast.swift"; sourceTree = "<group>"; };
 		59B8ABB2751B76E188C757AF /* AccessoryTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccessoryTile.swift"; sourceTree = "<group>"; };
 		9490F8C8BC669804A2E86DB8 /* SceneTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SceneTile.swift"; sourceTree = "<group>"; };
 		BC67DEA0E39A5E0F2CCB5D7E /* AccessoryDetailSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccessoryDetailSheet.swift"; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 				2DBB7D3A7715A6882E4D5E7B /* HMAccessory+Kind.swift */,
 				C2FC333E5ED5E65F6468FFC1 /* HMAccessory+State.swift */,
 				786311468DED6626052B176B /* HMService+Helpers.swift */,
+				1068A13BFD6FFDB9CA32E4A9 /* HMError+Friendly.swift */,
 			);
 			path = "Extensions";
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 				32BE70065BC99A8A3B117DD4 /* HomePickerView.swift */,
 				F10E291FE23E86766319454A /* RoomSection.swift */,
 				3169064ACDEEAE11A358276F /* ScenesSection.swift */,
+				CCB0FFA2A869259620CE76E4 /* ErrorToast.swift */,
 				8635202D3DD52390E6693AEA /* Tiles */,
 				CEBDCEE968876A96A15D0E6B /* Detail */,
 			);
@@ -311,6 +317,7 @@
 				3E80E787CFF5796B2E2766EE /* HMAccessory+Kind.swift in Sources */,
 				603A76833D66B12690DAB82D /* HMAccessory+State.swift in Sources */,
 				732645FAA531FDF445C14C37 /* HMService+Helpers.swift in Sources */,
+				1FC9F7C3B1DC73E1105005A1 /* HMError+Friendly.swift in Sources */,
 				95000705F54A3A0A54622342 /* DesignTokens.swift in Sources */,
 				432D0E9330A5C517ECA7F8CC /* AccessoryPalette.swift in Sources */,
 				5EAF64525AAC6F784C3CBB4F /* TileStyle.swift in Sources */,
@@ -325,6 +332,7 @@
 				38EC0E36825DD1BAAD70CD1B /* HomePickerView.swift in Sources */,
 				DCD6602FC8B16973AC047F96 /* RoomSection.swift in Sources */,
 				35BB9C4ED2B7DE1E58F032C3 /* ScenesSection.swift in Sources */,
+				14ED032265A9BC90D506DA0A /* ErrorToast.swift in Sources */,
 				CB5E653ECA8043BE04AD2DA9 /* AccessoryTile.swift in Sources */,
 				C463E0907C6503B9063EDCCD /* SceneTile.swift in Sources */,
 				D964E3E57DC3E76D653E4E80 /* AccessoryDetailSheet.swift in Sources */,
@@ -342,7 +350,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "Brand Assets";
 				CODE_SIGN_ENTITLEMENTS = "HomeDash/HomeDash.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeDash/Preview Content\"";
 				DEVELOPMENT_TEAM = JRKK5F6HH6;
 				ENABLE_PREVIEWS = YES;
@@ -371,7 +379,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "Brand Assets";
 				CODE_SIGN_ENTITLEMENTS = "HomeDash/HomeDash.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeDash/Preview Content\"";
 				DEVELOPMENT_TEAM = JRKK5F6HH6;
 				ENABLE_PREVIEWS = YES;
