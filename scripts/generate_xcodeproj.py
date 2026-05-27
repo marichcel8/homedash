@@ -126,7 +126,7 @@ target_common = {
     "ASSETCATALOG_COMPILER_APPICON_NAME": "Brand Assets",
     "CODE_SIGN_ENTITLEMENTS": "HomeDash/HomeDash.entitlements",
     "CODE_SIGN_STYLE": "Automatic",
-    "CURRENT_PROJECT_VERSION": "4",
+    "CURRENT_PROJECT_VERSION": "5",
     # Inner quotes sind PFLICHT, weil Xcode den Wert sonst am Leerzeichen splittet.
     "DEVELOPMENT_ASSET_PATHS": '"HomeDash/Preview Content"',
     "DEVELOPMENT_TEAM": "JRKK5F6HH6",
@@ -136,7 +136,7 @@ target_common = {
     "INFOPLIST_KEY_CFBundleDisplayName": "HomeDash",
     "INFOPLIST_KEY_UIUserInterfaceStyle": "Automatic",
     "LD_RUNPATH_SEARCH_PATHS": ["$(inherited)", "@executable_path/Frameworks"],
-    "MARKETING_VERSION": "1.0.1",
+    "MARKETING_VERSION": "1.0.2",
     "PRODUCT_BUNDLE_IDENTIFIER": "de.marcel.homedash",
     "PRODUCT_NAME": "$(TARGET_NAME)",
     "SDKROOT": "appletvos",

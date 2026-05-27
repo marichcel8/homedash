@@ -401,52 +401,74 @@ private final class AccessoryDelegateProxy: NSObject, HMAccessoryDelegate {
     }
 }
 
-/// Hört auf Änderungen innerhalb eines Homes (Accessories, Räume, Szenen, Namen).
-/// Damit reagiert die App live auf Re-Pairing oder Add/Remove von Geräten in der
-/// Home-App auf iPhone/iPad, ohne dass der User die Berechtigung neu erteilen muss.
+/// Hört auf Änderungen innerhalb eines Homes (Accessories, Räume, Szenen,
+/// Zones, ServiceGroups, Namen). Damit reagiert die App live auf Re-Pairing
+/// oder Add/Remove/Rename in der Home-App auf iPhone/iPad, ohne dass der
+/// User die Berechtigung neu erteilen oder die App neu starten muss.
+///
+/// **Was v1.0.1 falsch hatte:**
+/// - `home(_:didUpdate name: String)` existiert in HMHomeDelegate gar nicht —
+///   muss `homeDidUpdateName(_:)` heißen
+/// - `home(_:didUpdateRoom room:for accessory:)` ist deprecated — modern
+///   ist `home(_:didUpdate room:for accessory:)`
+/// - `didUpdateNameFor` für HMRoom/Accessory/ActionSet/ServiceGroup waren
+///   bei manchen SDK-Generationen nicht über Type-Overload bindbar
+///
+/// **Was v1.0.2 ändert:** alle 22 Delegate-Methoden auf die *modernen
+/// Swift-Namen* normalisiert (die der Compiler erzwingt via deprecation
+/// errors). Type-basiertes Overloading sorgt für die korrekte Obj-C-Selektor-
+/// Bindung. Zusätzlich neue Methoden: Zone-Events und Room↔Zone-Zuordnung,
+/// die v1.0.1 komplett fehlten.
 private final class HomeDelegateProxy: NSObject, HMHomeDelegate {
     weak var owner: HomeStore?
 
-    nonisolated func home(_ home: HMHome, didAdd accessory: HMAccessory) {
+    /// Zentraler Notify-Pfad — jede Delegate-Methode ruft das auf,
+    /// damit die UI re-ingestiert und re-rendert.
+    nonisolated private func notify() {
         Task { @MainActor [weak owner] in owner?.homeContentChanged() }
     }
-    nonisolated func home(_ home: HMHome, didRemove accessory: HMAccessory) {
-        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
-    }
-    nonisolated func home(_ home: HMHome, didUpdate name: String) {
-        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
-    }
-    nonisolated func home(_ home: HMHome, didUpdateNameFor accessory: HMAccessory) {
-        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
-    }
-    nonisolated func home(_ home: HMHome, didUpdateRoom room: HMRoom, for accessory: HMAccessory) {
-        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
-    }
-    nonisolated func home(_ home: HMHome, didAdd room: HMRoom) {
-        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
-    }
-    nonisolated func home(_ home: HMHome, didRemove room: HMRoom) {
-        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
-    }
-    nonisolated func home(_ home: HMHome, didUpdateNameFor room: HMRoom) {
-        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
-    }
-    nonisolated func home(_ home: HMHome, didAdd actionSet: HMActionSet) {
-        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
-    }
-    nonisolated func home(_ home: HMHome, didRemove actionSet: HMActionSet) {
-        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
-    }
-    nonisolated func home(_ home: HMHome, didUpdateNameFor actionSet: HMActionSet) {
-        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
-    }
-    nonisolated func home(_ home: HMHome, didUpdateActionsFor actionSet: HMActionSet) {
-        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
-    }
-    nonisolated func home(_ home: HMHome, didUnblockAccessory accessory: HMAccessory) {
-        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
-    }
-    nonisolated func home(_ home: HMHome, didEncounterError error: Error, for accessory: HMAccessory) {
-        Task { @MainActor [weak owner] in owner?.homeContentChanged() }
-    }
+
+    // MARK: - Home-Level Events
+
+    nonisolated func homeDidUpdateName(_ home: HMHome) { notify() }
+
+    nonisolated func homeDidUpdateAccessControl(forCurrentUser home: HMHome) { notify() }
+
+    // MARK: - Accessory Events (type-overloaded)
+
+    nonisolated func home(_ home: HMHome, didAdd accessory: HMAccessory) { notify() }
+    nonisolated func home(_ home: HMHome, didRemove accessory: HMAccessory) { notify() }
+    nonisolated func home(_ home: HMHome, didUpdate room: HMRoom, for accessory: HMAccessory) { notify() }
+    nonisolated func home(_ home: HMHome, didUnblockAccessory accessory: HMAccessory) { notify() }
+    nonisolated func home(_ home: HMHome, didEncounterError error: Error, for accessory: HMAccessory) { notify() }
+    // Hinweis: Accessory-Rename gibt es in HMHomeDelegate nicht.
+    // Wird über HMAccessoryDelegate.accessoryDidUpdateName(_:) abgefangen
+    // (siehe AccessoryDelegateProxy weiter oben).
+
+    // MARK: - Room Events (type-overloaded)
+
+    nonisolated func home(_ home: HMHome, didAdd room: HMRoom) { notify() }
+    nonisolated func home(_ home: HMHome, didRemove room: HMRoom) { notify() }
+    nonisolated func home(_ home: HMHome, didUpdateNameFor room: HMRoom) { notify() }
+
+    // MARK: - Zone Events (neu in v1.0.2)
+
+    nonisolated func home(_ home: HMHome, didAdd zone: HMZone) { notify() }
+    nonisolated func home(_ home: HMHome, didRemove zone: HMZone) { notify() }
+    nonisolated func home(_ home: HMHome, didUpdateNameFor zone: HMZone) { notify() }
+    nonisolated func home(_ home: HMHome, didAdd room: HMRoom, to zone: HMZone) { notify() }
+    nonisolated func home(_ home: HMHome, didRemove room: HMRoom, from zone: HMZone) { notify() }
+
+    // MARK: - Service Group Events (neu in v1.0.2)
+
+    nonisolated func home(_ home: HMHome, didAdd group: HMServiceGroup) { notify() }
+    nonisolated func home(_ home: HMHome, didRemove group: HMServiceGroup) { notify() }
+    nonisolated func home(_ home: HMHome, didUpdateNameFor group: HMServiceGroup) { notify() }
+
+    // MARK: - Action Set (Scene) Events
+
+    nonisolated func home(_ home: HMHome, didAdd actionSet: HMActionSet) { notify() }
+    nonisolated func home(_ home: HMHome, didRemove actionSet: HMActionSet) { notify() }
+    nonisolated func home(_ home: HMHome, didUpdateNameFor actionSet: HMActionSet) { notify() }
+    nonisolated func home(_ home: HMHome, didUpdateActionsFor actionSet: HMActionSet) { notify() }
 }
