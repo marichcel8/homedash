@@ -84,15 +84,34 @@ Google Hub, aber Apple-native und Privacy-first.
 
 ## Monetarisierungs-Strategie
 
+> **FEST EINGEPLANT (User-Wunsch):** In-App-Käufe kommen dazu. Konkret als
+> **HomeDash Pro** (einmaliger IAP, schaltet Pro-Features frei) und optional
+> ein **HomeDash+ Abo** für laufende Premium-Features. Technik: StoreKit 2
+> (`Product`, `Transaction`, `AppStore.sync()`), Entitlement-Check beim Start,
+> lokal gecachter Kaufstatus. Muss VOR dem ersten bezahlten Feature stehen —
+> eigene Iteration (v1.2.0), bevor v2.0 die großen Pro-Features bringt.
+
 | Modell | Pro | Contra |
 |---|---|---|
 | Alles free Updates | Goodwill, Reviews bleiben gut | Keine Recurring-Revenue |
-| **HomeDash Pro IAP** ($4.99 once) ab v1.1 | Realistisch, fair | Erst bei kritischer Mass sinnvoll |
-| HomeDash+ Abo ($1.99/mo) ab v2.0 | Indie-Standard heute | Ärgert User die einmal gekauft haben |
+| **HomeDash Pro IAP** (einmalig, z. B. €4.99) ab v1.2 | Realistisch, fair | Erst bei kritischer Mass sinnvoll |
+| **HomeDash+ Abo** (z. B. €1.99/mo) ab v2.0 | Indie-Standard heute | Ärgert User die einmal gekauft haben |
 | Pricing-Bump v2.0 (z. B. €2.99 → €9.99) | Reflektiert echten Mehrwert | Bestandskunden bekommen v2 gratis (Apple-Regel) |
 
-**Empfehlung**: 1.x.0 alles kostenlos. **2.0.0 als neuer Major mit IAP**
-für Pro-Features (Custom Dashboards, AI-Vorschläge, Matter-Plugin-Manager).
+**Empfehlung**: 1.0.x/1.1.0 alles kostenlos (Userbase aufbauen). **v1.2.0
+führt StoreKit + HomeDash Pro IAP ein** (erstes Paywall-Feature). **2.0.0**
+optional mit Abo für die großen Features (Custom Dashboards, AI-Vorschläge,
+Matter-Plugin-Manager).
+
+### IAP-Implementierungs-Checkliste (für die IAP-Iteration)
+- [ ] StoreKit 2 (`Product.products(for:)`, `purchase()`)
+- [ ] Produkt in App Store Connect anlegen (Non-Consumable „HomeDash Pro")
+- [ ] Entitlement-Manager: `Transaction.currentEntitlements` beim Start prüfen
+- [ ] Lokaler Cache des Pro-Status (UserDefaults, offline-fähig)
+- [ ] „Restore Purchases"-Button (Apple-Pflicht)
+- [ ] Paywall-View (tvOS-konform, Siri-Remote-bedienbar)
+- [ ] Sandbox-Tester anlegen + durchtesten
+- [ ] App-Review-Notes ergänzen: wie Reviewer den IAP testet
 
 ---
 

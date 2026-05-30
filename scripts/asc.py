@@ -221,6 +221,77 @@ def cmd_set_whatsnew(cfg, version):
             print(f"✅ {locale}: whatsNew neu angelegt")
 
 
+def cmd_make_profile(cfg):
+    """Erstellt ein TVOS_APP_STORE Provisioning-Profil (Distribution-Cert +
+    Bundle-ID), lädt es herunter und installiert es lokal. Druckt UUID + Name."""
+    import base64, plistlib, re, subprocess
+    # 1) Distribution-Zertifikat finden
+    certs = api(cfg, "GET", "/v1/certificates?limit=50")
+    dist = None
+    for c in certs.get("data", []):
+        ct = c["attributes"].get("certificateType", "")
+        if ct in ("DISTRIBUTION", "IOS_DISTRIBUTION"):
+            dist = c
+            break
+    if not dist:
+        sys.exit("Kein Distribution-Zertifikat im Account gefunden.")
+    cert_id = dist["id"]
+    print(f"  Distribution-Cert: {dist['attributes'].get('name')} ({cert_id})")
+
+    # 2) Bundle-ID-Ressource finden
+    bids = api(cfg, "GET",
+               f"/v1/bundleIds?filter[identifier]={BUNDLE_ID}&limit=10")
+    bundle = None
+    for b in bids.get("data", []):
+        if b["attributes"].get("identifier") == BUNDLE_ID:
+            bundle = b
+            break
+    if not bundle:
+        sys.exit(f"Bundle-ID {BUNDLE_ID} nicht im Account registriert.")
+    bid_id = bundle["id"]
+    print(f"  Bundle-ID: {BUNDLE_ID} ({bid_id})")
+
+    # 3) Evtl. altes CLI-Profil löschen (Name-Kollision vermeiden)
+    prof_name = "HomeDash tvOS App Store (CLI)"
+    existing = api(cfg, "GET", "/v1/profiles?limit=200")
+    for p in existing.get("data", []):
+        if p["attributes"].get("name") == prof_name:
+            try:
+                api(cfg, "DELETE", f"/v1/profiles/{p['id']}")
+                print(f"  altes Profil gelöscht: {p['id']}")
+            except Exception:
+                pass
+
+    # 4) Neues Profil erstellen
+    body = {"data": {
+        "type": "profiles",
+        "attributes": {"name": prof_name, "profileType": "TVOS_APP_STORE"},
+        "relationships": {
+            "bundleId": {"data": {"type": "bundleIds", "id": bid_id}},
+            "certificates": {"data": [{"type": "certificates", "id": cert_id}]},
+        }}}
+    res = api(cfg, "POST", "/v1/profiles", data=json.dumps(body))
+    attrs = res["data"]["attributes"]
+    content_b64 = attrs["profileContent"]
+    raw = base64.b64decode(content_b64)
+
+    # 5) UUID aus dem Profil extrahieren
+    m = re.search(rb"<key>UUID</key>\s*<string>([-0-9A-Fa-f]+)</string>", raw)
+    uuid = m.group(1).decode() if m else res["data"]["id"]
+
+    # 6) Installieren
+    dest_dir = os.path.expanduser("~/Library/MobileDevice/Provisioning Profiles")
+    os.makedirs(dest_dir, exist_ok=True)
+    dest = os.path.join(dest_dir, f"{uuid}.mobileprovision")
+    with open(dest, "wb") as f:
+        f.write(raw)
+    print(f"✅ Profil installiert: {prof_name}")
+    print(f"   UUID: {uuid}")
+    print(f"   Pfad: {dest}")
+    print(f"PROFILE_NAME={prof_name}")
+    print(f"PROFILE_UUID={uuid}")
+
+
 def cmd_set_compliance(cfg, build_number, uses_encryption):
     """Setzt usesNonExemptEncryption auf dem Build (Export-Compliance)."""
     app = get_app(cfg)
@@ -316,6 +387,8 @@ def main():
         cmd_set_whatsnew(cfg, sys.argv[2])
     elif cmd == "attach-build":
         cmd_attach_build(cfg, sys.argv[2], sys.argv[3])
+    elif cmd == "make-profile":
+        cmd_make_profile(cfg)
     elif cmd == "set-compliance":
         cmd_set_compliance(cfg, sys.argv[2], sys.argv[3])
     elif cmd == "submit":
