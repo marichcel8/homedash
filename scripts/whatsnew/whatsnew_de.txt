@@ -1,0 +1,5 @@
+Stabilität und Fehlerbehebungen:
+
+• Live-Updates wenn du in der Home-App Geräte, Räume oder Szenen hinzufügst, entfernst oder umbenennst – ganz ohne Neustart der App
+• Klare Fehlermeldungen, wenn ein Gerät offline ist oder nicht reagiert
+• Offline-Markierung für nicht erreichbare Geräte direkt auf der Kachel

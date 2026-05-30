@@ -30,3 +30,9 @@ __pycache__/
 Thumbs.db
 *.swp
 *~
+
+# App Store Connect API – niemals committen
+*.p8
+**/private_keys/
+.appstoreconnect/
+asc_config.json

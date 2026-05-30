@@ -1,0 +1,5 @@
+Stability and bug fixes:
+
+• Live updates when accessories, rooms, or scenes are added, removed, or renamed in the Home app — no restart needed
+• Clear error messages when an accessory is offline or unresponsive
+• Offline indicator shown directly on the tile for unreachable accessories
