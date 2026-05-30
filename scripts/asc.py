@@ -221,6 +221,63 @@ def cmd_set_whatsnew(cfg, version):
             print(f"✅ {locale}: whatsNew neu angelegt")
 
 
+def cmd_set_compliance(cfg, build_number, uses_encryption):
+    """Setzt usesNonExemptEncryption auf dem Build (Export-Compliance)."""
+    app = get_app(cfg)
+    app_id = app["id"]
+    builds = api(cfg, "GET",
+                 f"/v1/builds?filter[app]={app_id}"
+                 f"&filter[version]={build_number}&limit=1")
+    if not builds.get("data"):
+        sys.exit(f"Build {build_number} nicht gefunden.")
+    bid = builds["data"][0]["id"]
+    val = (str(uses_encryption).lower() == "true")
+    body = {"data": {"type": "builds", "id": bid,
+                     "attributes": {"usesNonExemptEncryption": val}}}
+    api(cfg, "PATCH", f"/v1/builds/{bid}", data=json.dumps(body))
+    print(f"✅ Build {build_number}: usesNonExemptEncryption = {val}")
+
+
+def cmd_submit(cfg, version):
+    """Reicht eine appStoreVersion zur Prüfung ein (moderne reviewSubmissions-API)."""
+    app = get_app(cfg)
+    app_id = app["id"]
+    versions = api(cfg, "GET",
+                   f"/v1/apps/{app_id}/appStoreVersions?limit=20")
+    vid = None
+    for v in versions.get("data", []):
+        if v["attributes"].get("versionString") == version:
+            vid = v["id"]
+            break
+    if not vid:
+        sys.exit(f"Version {version} nicht gefunden.")
+
+    # 1) reviewSubmission anlegen
+    body = {"data": {"type": "reviewSubmissions",
+                     "attributes": {"platform": "TV_OS"},
+                     "relationships": {"app": {"data": {"type": "apps",
+                                                        "id": app_id}}}}}
+    sub = api(cfg, "POST", "/v1/reviewSubmissions", data=json.dumps(body))
+    sub_id = sub["data"]["id"]
+    print(f"  reviewSubmission angelegt: {sub_id}")
+
+    # 2) Version als Item hinzufügen
+    body = {"data": {"type": "reviewSubmissionItems",
+                     "relationships": {
+                         "reviewSubmission": {"data": {"type": "reviewSubmissions",
+                                                       "id": sub_id}},
+                         "appStoreVersion": {"data": {"type": "appStoreVersions",
+                                                      "id": vid}}}}}
+    api(cfg, "POST", "/v1/reviewSubmissionItems", data=json.dumps(body))
+    print(f"  Version {version} als Item hinzugefügt")
+
+    # 3) Submission abschicken
+    body = {"data": {"type": "reviewSubmissions", "id": sub_id,
+                     "attributes": {"submitted": True}}}
+    api(cfg, "PATCH", f"/v1/reviewSubmissions/{sub_id}", data=json.dumps(body))
+    print(f"✅ Version {version} zur Prüfung eingereicht (submission {sub_id}).")
+
+
 def cmd_attach_build(cfg, version, build_number):
     app = get_app(cfg)
     app_id = app["id"]
@@ -259,6 +316,10 @@ def main():
         cmd_set_whatsnew(cfg, sys.argv[2])
     elif cmd == "attach-build":
         cmd_attach_build(cfg, sys.argv[2], sys.argv[3])
+    elif cmd == "set-compliance":
+        cmd_set_compliance(cfg, sys.argv[2], sys.argv[3])
+    elif cmd == "submit":
+        cmd_submit(cfg, sys.argv[2])
     elif cmd == "raw":
         print(json.dumps(api(cfg, "GET", sys.argv[2]), indent=2))
     else:
