@@ -51,7 +51,7 @@ Issuer ID ist nicht-geheim. `.p8` verlässt nie die Maschine.
 - User-facing: "Apple Home" (nicht "HomeKit"). "HomeKit" nur technisch.
 - Lokalisierung DE + EN, alle Strings in Localizable.strings.
 - Commit-Trailer: `Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>`
-- Roadmap: docs/ROADMAP.md (IAP via StoreKit 2 fest für v1.2.0 eingeplant).
+- Roadmap: docs/ROADMAP.md (Bezahl-App, kein Pro-IAP; Abo nur für KI-Features später).
 
 ## Backlog / offen
 - Englische App-Store-Screenshots (Apple TV auf EN, via Xcode Devices, dann zurück)
