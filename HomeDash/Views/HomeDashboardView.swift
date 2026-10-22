@@ -8,6 +8,7 @@ struct HomeDashboardView: View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(alignment: .leading, spacing: HomeDesign.sectionTopPadding, pinnedViews: []) {
                 header
+                SensorOverview()
                 ScenesSection()
                 FavoritesSection()
                 ForEach(store.roomsInCurrentHome(), id: \.uniqueIdentifier) { room in

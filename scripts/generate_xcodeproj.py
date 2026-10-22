@@ -21,6 +21,7 @@ SWIFT_FILES = [
     "Models/HomeStore.swift",
     "Models/AccessoryKind.swift",
     "Models/FavoritesStore.swift",
+    "Models/SensorSummary.swift",
     "Extensions/HMAccessory+Kind.swift",
     "Extensions/HMAccessory+State.swift",
     "Extensions/HMService+Helpers.swift",
@@ -39,6 +40,7 @@ SWIFT_FILES = [
     "Views/HomePickerView.swift",
     "Views/RoomSection.swift",
     "Views/ScenesSection.swift",
+    "Views/SensorOverview.swift",
     "Views/ErrorToast.swift",
     "Views/Tiles/AccessoryTile.swift",
     "Views/Tiles/SceneTile.swift",
@@ -308,6 +310,7 @@ out.extend(group_block(MODELS_GROUP_ID, "Models", [
     (file_ref_id("Models/HomeStore.swift"), "HomeStore.swift"),
     (file_ref_id("Models/AccessoryKind.swift"), "AccessoryKind.swift"),
     (file_ref_id("Models/FavoritesStore.swift"), "FavoritesStore.swift"),
+    (file_ref_id("Models/SensorSummary.swift"), "SensorSummary.swift"),
 ], path="Models"))
 
 # Extensions
@@ -351,6 +354,7 @@ out.extend(group_block(VIEWS_GROUP_ID, "Views", [
     (file_ref_id("Views/HomePickerView.swift"), "HomePickerView.swift"),
     (file_ref_id("Views/RoomSection.swift"), "RoomSection.swift"),
     (file_ref_id("Views/ScenesSection.swift"), "ScenesSection.swift"),
+    (file_ref_id("Views/SensorOverview.swift"), "SensorOverview.swift"),
     (file_ref_id("Views/ErrorToast.swift"), "ErrorToast.swift"),
     (VIEWS_TILES_GROUP_ID, "Tiles"),
     (VIEWS_DETAIL_GROUP_ID, "Detail"),

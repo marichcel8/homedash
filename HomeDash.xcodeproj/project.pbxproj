@@ -11,6 +11,7 @@
 		4E16D87B2581488632DC1152 /* HomeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517D00CB84AD3A7760A46D3A /* HomeStore.swift */; };
 		81804D8BBC390D49E1A2BD88 /* AccessoryKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDA849F21B105FC6CD94DE8 /* AccessoryKind.swift */; };
 		36236D66609C656B78EBF0D0 /* FavoritesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42692983C69B31EA786656 /* FavoritesStore.swift */; };
+		E3527CD422FC872FF993AD48 /* SensorSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D230F6BB9D4752329DFF7 /* SensorSummary.swift */; };
 		3E80E787CFF5796B2E2766EE /* HMAccessory+Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB7D3A7715A6882E4D5E7B /* HMAccessory+Kind.swift */; };
 		603A76833D66B12690DAB82D /* HMAccessory+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC333E5ED5E65F6468FFC1 /* HMAccessory+State.swift */; };
 		732645FAA531FDF445C14C37 /* HMService+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786311468DED6626052B176B /* HMService+Helpers.swift */; };
@@ -29,6 +30,7 @@
 		38EC0E36825DD1BAAD70CD1B /* HomePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BE70065BC99A8A3B117DD4 /* HomePickerView.swift */; };
 		DCD6602FC8B16973AC047F96 /* RoomSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E291FE23E86766319454A /* RoomSection.swift */; };
 		35BB9C4ED2B7DE1E58F032C3 /* ScenesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169064ACDEEAE11A358276F /* ScenesSection.swift */; };
+		683039D64A7B34A55462987C /* SensorOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A3D512301C1B649B3DFBA1 /* SensorOverview.swift */; };
 		14ED032265A9BC90D506DA0A /* ErrorToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0FFA2A869259620CE76E4 /* ErrorToast.swift */; };
 		CB5E653ECA8043BE04AD2DA9 /* AccessoryTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B8ABB2751B76E188C757AF /* AccessoryTile.swift */; };
 		C463E0907C6503B9063EDCCD /* SceneTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9490F8C8BC669804A2E86DB8 /* SceneTile.swift */; };
@@ -49,6 +51,7 @@
 		517D00CB84AD3A7760A46D3A /* HomeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeStore.swift"; sourceTree = "<group>"; };
 		BBDA849F21B105FC6CD94DE8 /* AccessoryKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccessoryKind.swift"; sourceTree = "<group>"; };
 		1F42692983C69B31EA786656 /* FavoritesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesStore.swift"; sourceTree = "<group>"; };
+		C42D230F6BB9D4752329DFF7 /* SensorSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SensorSummary.swift"; sourceTree = "<group>"; };
 		2DBB7D3A7715A6882E4D5E7B /* HMAccessory+Kind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HMAccessory+Kind.swift"; sourceTree = "<group>"; };
 		C2FC333E5ED5E65F6468FFC1 /* HMAccessory+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HMAccessory+State.swift"; sourceTree = "<group>"; };
 		786311468DED6626052B176B /* HMService+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HMService+Helpers.swift"; sourceTree = "<group>"; };
@@ -67,6 +70,7 @@
 		32BE70065BC99A8A3B117DD4 /* HomePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomePickerView.swift"; sourceTree = "<group>"; };
 		F10E291FE23E86766319454A /* RoomSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomSection.swift"; sourceTree = "<group>"; };
 		3169064ACDEEAE11A358276F /* ScenesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScenesSection.swift"; sourceTree = "<group>"; };
+		A0A3D512301C1B649B3DFBA1 /* SensorOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SensorOverview.swift"; sourceTree = "<group>"; };
 		CCB0FFA2A869259620CE76E4 /* ErrorToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ErrorToast.swift"; sourceTree = "<group>"; };
 		59B8ABB2751B76E188C757AF /* AccessoryTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccessoryTile.swift"; sourceTree = "<group>"; };
 		9490F8C8BC669804A2E86DB8 /* SceneTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SceneTile.swift"; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 				517D00CB84AD3A7760A46D3A /* HomeStore.swift */,
 				BBDA849F21B105FC6CD94DE8 /* AccessoryKind.swift */,
 				1F42692983C69B31EA786656 /* FavoritesStore.swift */,
+				C42D230F6BB9D4752329DFF7 /* SensorSummary.swift */,
 			);
 			path = "Models";
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 				32BE70065BC99A8A3B117DD4 /* HomePickerView.swift */,
 				F10E291FE23E86766319454A /* RoomSection.swift */,
 				3169064ACDEEAE11A358276F /* ScenesSection.swift */,
+				A0A3D512301C1B649B3DFBA1 /* SensorOverview.swift */,
 				CCB0FFA2A869259620CE76E4 /* ErrorToast.swift */,
 				8635202D3DD52390E6693AEA /* Tiles */,
 				CEBDCEE968876A96A15D0E6B /* Detail */,
@@ -314,6 +320,7 @@
 				4E16D87B2581488632DC1152 /* HomeStore.swift in Sources */,
 				81804D8BBC390D49E1A2BD88 /* AccessoryKind.swift in Sources */,
 				36236D66609C656B78EBF0D0 /* FavoritesStore.swift in Sources */,
+				E3527CD422FC872FF993AD48 /* SensorSummary.swift in Sources */,
 				3E80E787CFF5796B2E2766EE /* HMAccessory+Kind.swift in Sources */,
 				603A76833D66B12690DAB82D /* HMAccessory+State.swift in Sources */,
 				732645FAA531FDF445C14C37 /* HMService+Helpers.swift in Sources */,
@@ -332,6 +339,7 @@
 				38EC0E36825DD1BAAD70CD1B /* HomePickerView.swift in Sources */,
 				DCD6602FC8B16973AC047F96 /* RoomSection.swift in Sources */,
 				35BB9C4ED2B7DE1E58F032C3 /* ScenesSection.swift in Sources */,
+				683039D64A7B34A55462987C /* SensorOverview.swift in Sources */,
 				14ED032265A9BC90D506DA0A /* ErrorToast.swift in Sources */,
 				CB5E653ECA8043BE04AD2DA9 /* AccessoryTile.swift in Sources */,
 				C463E0907C6503B9063EDCCD /* SceneTile.swift in Sources */,

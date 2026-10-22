@@ -95,3 +95,19 @@
 "error.busy" = "Gerät ist gerade beschäftigt.";
 "error.invalidValue" = "Ungültiger Wert.";
 "error.generic" = "Etwas hat nicht geklappt.";
+
+/* Sensor-Übersicht */
+"sensors.alert" = "Warnung";
+"sensors.detected %@" = "%@ erkannt";
+"sensors.climate" = "Klima";
+"sensors.humidity" = "Luftfeuchte";
+"sensors.motion" = "Bewegung";
+"sensors.motion.none" = "Keine";
+"sensors.openings" = "Türen & Fenster";
+"sensors.open %@" = "%@ offen";
+"sensors.openings.allClosed" = "Alle zu";
+"sensors.locks" = "Schlösser";
+"sensors.unlocked %@" = "%@ entriegelt";
+"sensors.locks.allLocked" = "Alle gesichert";
+"sensors.offline" = "Offline";
+"sensors.devices %@" = "%@ Geräte";
