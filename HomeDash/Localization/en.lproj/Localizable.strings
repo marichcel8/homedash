@@ -95,3 +95,25 @@
 "error.busy" = "Device is busy.";
 "error.invalidValue" = "Invalid value.";
 "error.generic" = "Something went wrong.";
+
+/* Sensor Overview */
+"sensors.alert" = "Alert";
+"sensors.detected %@" = "%@ detected";
+"sensors.climate" = "Climate";
+"sensors.humidity" = "Humidity";
+"sensors.motion" = "Motion";
+"sensors.motion.none" = "None";
+"sensors.openings" = "Doors & Windows";
+"sensors.open %@" = "%@ open";
+"sensors.openings.allClosed" = "All closed";
+"sensors.locks" = "Locks";
+"sensors.unlocked %@" = "%@ unlocked";
+"sensors.locks.allLocked" = "All locked";
+"sensors.offline" = "Offline";
+"sensors.devices %@" = "%@ devices";
+
+/* Search */
+"search.button" = "Search devices";
+"search.prompt" = "Device or room";
+"search.noResults.title" = "No Results";
+"search.noResults.body" = "No device matches your search. Try a different device or room name.";

@@ -8,6 +8,7 @@ struct HomeDashboardView: View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(alignment: .leading, spacing: HomeDesign.sectionTopPadding, pinnedViews: []) {
                 header
+                SensorOverview()
                 ScenesSection()
                 FavoritesSection()
                 ForEach(store.roomsInCurrentHome(), id: \.uniqueIdentifier) { room in
@@ -62,8 +63,11 @@ struct HomeDashboardView: View {
                 }
             }
             Spacer()
-            if store.homes.count > 1 {
-                HomePickerView()
+            HStack(spacing: 24) {
+                SearchButton()
+                if store.homes.count > 1 {
+                    HomePickerView()
+                }
             }
         }
         .padding(.horizontal, HomeDesign.safeAreaH)

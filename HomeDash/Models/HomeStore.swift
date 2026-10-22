@@ -112,6 +112,15 @@ final class HomeStore {
         currentHome?.accessories.filter(isUsefulAccessory) ?? []
     }
 
+    /// Aggregierter Sensor-/Status-Überblick über das aktuelle Home.
+    func sensorSummary() -> SensorSummary {
+        // Bewusster Zugriff: registriert die View für Observation auf alle
+        // Accessory-Revisionen, damit die Übersicht bei jedem Sensor-Update
+        // neu berechnet wird.
+        _ = accessoryRevisions
+        return SensorSummary(accessories: allAccessoriesInHome())
+    }
+
     func roomsInCurrentHome() -> [HMRoom] {
         guard let home = currentHome else { return [] }
         return home.rooms.sorted {
@@ -344,6 +353,11 @@ final class HomeStore {
             HMCharacteristicTypeMotionDetected,
             HMCharacteristicTypeOccupancyDetected,
             HMCharacteristicTypeContactState,
+            HMCharacteristicTypeCurrentRelativeHumidity,
+            HMCharacteristicTypeLeakDetected,
+            HMCharacteristicTypeSmokeDetected,
+            HMCharacteristicTypeCarbonMonoxideDetected,
+            HMCharacteristicTypeCarbonDioxideDetected,
         ]
         for home in list {
             for accessory in home.accessories {

@@ -95,3 +95,25 @@
 "error.busy" = "Gerät ist gerade beschäftigt.";
 "error.invalidValue" = "Ungültiger Wert.";
 "error.generic" = "Etwas hat nicht geklappt.";
+
+/* Sensor-Übersicht */
+"sensors.alert" = "Warnung";
+"sensors.detected %@" = "%@ erkannt";
+"sensors.climate" = "Klima";
+"sensors.humidity" = "Luftfeuchte";
+"sensors.motion" = "Bewegung";
+"sensors.motion.none" = "Keine";
+"sensors.openings" = "Türen & Fenster";
+"sensors.open %@" = "%@ offen";
+"sensors.openings.allClosed" = "Alle zu";
+"sensors.locks" = "Schlösser";
+"sensors.unlocked %@" = "%@ entriegelt";
+"sensors.locks.allLocked" = "Alle gesichert";
+"sensors.offline" = "Offline";
+"sensors.devices %@" = "%@ Geräte";
+
+/* Suche */
+"search.button" = "Geräte suchen";
+"search.prompt" = "Gerät oder Raum";
+"search.noResults.title" = "Keine Treffer";
+"search.noResults.body" = "Kein Gerät passt zu deiner Suche. Versuche einen anderen Geräte- oder Raumnamen.";
