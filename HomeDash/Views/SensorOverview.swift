@@ -19,6 +19,7 @@ struct SensorOverview: View {
                 }
                 .padding(.horizontal, HomeDesign.safeAreaH)
             }
+            .accessibilityIdentifier("sensors.overview")
         }
     }
 
@@ -137,6 +138,7 @@ private struct SensorChipView: View {
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(Text(chip.title))
         .accessibilityValue(Text(chip.value))
+        .accessibilityIdentifier("sensor.\(chip.id)")
     }
 
     @ViewBuilder

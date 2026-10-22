@@ -38,6 +38,14 @@ Device-Build + GUI). Für den **App-Store-Export** aber manual signing mit
 API-erzeugtem Profil (`make-profile`, Team 3PXX8LS2JZ) + `-authenticationKey*`-
 Flags. Automatic signing per CLI scheitert sonst an „missing Xcode-Username".
 
+## UI-Tests (XCUITest, Target `HomeDashUITests`)
+Laufen auf dem echten Apple TV „Bedroom (2)“ gegen das echte Apple Home.
+Deshalb nie `.select` auf Tiles drücken (schaltet echte Geräte), nur Fokus,
+Play/Pause (Detail-Sheet) und Menu. Neue Testdateien in `UITEST_FILES` im
+Generator eintragen. Lokal braucht xcodebuild das echte Team (Dev-Cert hat
+OU 3PXX8LS2JZ, kein Xcode-Account angemeldet):
+`xcodebuild test -project HomeDash.xcodeproj -scheme HomeDash -destination 'platform=tvOS,id=00008110-001918D43EC0A01E' DEVELOPMENT_TEAM=3PXX8LS2JZ`
+
 ## ASC-Credentials
 Lokal in `~/.appstoreconnect/config.json` (chmod 600, NICHT im Repo).
 Key-ID GY2QKWF54X, `.p8` in `~/.appstoreconnect/private_keys/`.

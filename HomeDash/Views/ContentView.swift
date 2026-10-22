@@ -18,19 +18,32 @@ struct ContentView: View {
     private var content: some View {
         if store.isRestricted {
             PermissionView(reason: .restricted)
+                .uiTestContainer("root.permission")
         } else if !store.isLoaded {
             LoadingView()
+                .uiTestContainer("root.loading")
         } else if !store.hasAuthorization {
             PermissionView(reason: store.permissionWasDenied ? .denied : .undetermined)
+                .uiTestContainer("root.permission")
         } else if store.homes.isEmpty {
             EmptyStateView(
                 symbol: "house.slash",
                 title: "empty.noHomes.title",
                 message: "empty.noHomes.body"
             )
+            .uiTestContainer("root.noHomes")
         } else {
             HomeDashboardView()
         }
+    }
+}
+
+extension View {
+    /// Fasst einen Bildschirm für XCUITest unter einer festen ID zusammen,
+    /// ohne die Kinder (Tiles, Buttons) für VoiceOver zu verstecken.
+    func uiTestContainer(_ identifier: String) -> some View {
+        accessibilityElement(children: .contain)
+            .accessibilityIdentifier(identifier)
     }
 }
 
