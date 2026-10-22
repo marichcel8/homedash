@@ -18,6 +18,8 @@ Network-Abhängigkeit, keine Analytics.
   Error-Toast, Offline-Badge, Friendly-Error-Mapping
 - **1.0.2** (in Arbeit): HMHomeDelegate-Bindings via @objc — Live-Updates
   für Home-Rename, Room-Rename, Accessory-Room-Wechsel, Szenen-Operationen
+- **1.1.0** (in Arbeit, auf `main`): ✅ Sensor-Übersicht (Status-Chips unter
+  dem Header), ✅ Gerätesuche (Lupe im Header, Geräte- oder Raumname)
 
 ---
 
@@ -28,8 +30,8 @@ Network-Abhängigkeit, keine Analytics.
 | Feature | API/Begründung | Effort |
 |---|---|---|
 | 📹 **Kamera-Streams** | HMCameraProfile + AVPlayer. TV ist DER Bildschirm für Türklingel/Sicherheitskameras. Größtes funktionales Loch in v1.0 | 2–3 Wo |
-| 🌡️ **Sensor-Übersicht** | Temperatur/Feuchtigkeit/Bewegung als eigene Sektion oben, nicht versteckt in Tiles | 1 Wo |
-| 🔍 **Suche / Filter** | Siri-Remote-Tastatur → springt zum Gerät. Wichtig ab ~20 Geräten | 2–3 Tage |
+| ✅ 🌡️ **Sensor-Übersicht** (PR #1) | Temperatur/Feuchtigkeit/Bewegung als eigene Sektion oben, nicht versteckt in Tiles | 1 Wo |
+| ✅ 🔍 **Suche / Filter** (PR #1) | Siri-Remote-Tastatur → springt zum Gerät. Wichtig ab ~20 Geräten | 2–3 Tage |
 | 🎯 **Top-Shelf-Widget** | Lieblings-Tiles auf tvOS-Startseite. Sehr Apple-TV-native | 1 Wo |
 | 🏠 **Multi-Home Toggle in Navigation** | Statt nur Picker im Header — Switch zwischen Homes muss prominenter | 2 Tage |
 | 🔧 **Auto-Reorder per Long-Press** | Eigene Tile-Reihenfolge pro Raum. Apple-Home-App kann's | 3–5 Tage |
@@ -84,12 +86,12 @@ Google Hub, aber Apple-native und Privacy-first.
 
 ## Monetarisierungs-Strategie
 
-> **FEST EINGEPLANT (User-Wunsch):** In-App-Käufe kommen dazu. Konkret als
-> **HomeDash Pro** (einmaliger IAP, schaltet Pro-Features frei) und optional
-> ein **HomeDash+ Abo** für laufende Premium-Features. Technik: StoreKit 2
-> (`Product`, `Transaction`, `AppStore.sync()`), Entitlement-Check beim Start,
-> lokal gecachter Kaufstatus. Muss VOR dem ersten bezahlten Feature stehen —
-> eigene Iteration (v1.2.0), bevor v2.0 die großen Pro-Features bringt.
+> **ENTSCHEIDUNG MARCEL (22.10.2026):** HomeDash ist eine **Bezahl-App** –
+> der Kaufpreis deckt alle normalen Features, auch neue (Sensoren, Suche,
+> Kameras, Top-Shelf …). **Kein „HomeDash Pro"-Einmalkauf.** Nur wirklich
+> außergewöhnliche Features mit laufenden Kosten (z. B. KI-Nutzung) kommen
+> später als **Abo** (StoreKit 2, `Product`, `Transaction`,
+> `AppStore.sync()`, Entitlement-Check beim Start, lokal gecachter Status).
 
 | Modell | Pro | Contra |
 |---|---|---|
@@ -98,14 +100,13 @@ Google Hub, aber Apple-native und Privacy-first.
 | **HomeDash+ Abo** (z. B. €1.99/mo) ab v2.0 | Indie-Standard heute | Ärgert User die einmal gekauft haben |
 | Pricing-Bump v2.0 (z. B. €2.99 → €9.99) | Reflektiert echten Mehrwert | Bestandskunden bekommen v2 gratis (Apple-Regel) |
 
-**Empfehlung**: 1.0.x/1.1.0 alles kostenlos (Userbase aufbauen). **v1.2.0
-führt StoreKit + HomeDash Pro IAP ein** (erstes Paywall-Feature). **2.0.0**
-optional mit Abo für die großen Features (Custom Dashboards, AI-Vorschläge,
-Matter-Plugin-Manager).
+**Plan**: 1.x bleibt ohne In-App-Käufe, alle Features im Kaufpreis. Ein Abo
+erst mit dem ersten Feature, das laufende Kosten verursacht (KI-Vorschläge in
+v2.0).
 
-### IAP-Implementierungs-Checkliste (für die IAP-Iteration)
+### Abo-Implementierungs-Checkliste (erst mit KI-Features)
 - [ ] StoreKit 2 (`Product.products(for:)`, `purchase()`)
-- [ ] Produkt in App Store Connect anlegen (Non-Consumable „HomeDash Pro")
+- [ ] Abo-Produkt in App Store Connect anlegen (Auto-Renewable)
 - [ ] Entitlement-Manager: `Transaction.currentEntitlements` beim Start prüfen
 - [ ] Lokaler Cache des Pro-Status (UserDefaults, offline-fähig)
 - [ ] „Restore Purchases"-Button (Apple-Pflicht)
