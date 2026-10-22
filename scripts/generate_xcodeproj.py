@@ -33,6 +33,7 @@ SWIFT_FILES = [
     "DesignSystem/FocusOutline.swift",
     "DesignSystem/FocusableTap.swift",
     "Views/ContentView.swift",
+    "Views/DeviceSearchView.swift",
     "Views/PermissionView.swift",
     "Views/EmptyStateView.swift",
     "Views/FavoritesSection.swift",
@@ -347,6 +348,7 @@ out.extend(group_block(VIEWS_DETAIL_GROUP_ID, "Detail", [
 # Views
 out.extend(group_block(VIEWS_GROUP_ID, "Views", [
     (file_ref_id("Views/ContentView.swift"), "ContentView.swift"),
+    (file_ref_id("Views/DeviceSearchView.swift"), "DeviceSearchView.swift"),
     (file_ref_id("Views/PermissionView.swift"), "PermissionView.swift"),
     (file_ref_id("Views/EmptyStateView.swift"), "EmptyStateView.swift"),
     (file_ref_id("Views/FavoritesSection.swift"), "FavoritesSection.swift"),

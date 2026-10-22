@@ -111,3 +111,9 @@
 "sensors.locks.allLocked" = "Alle gesichert";
 "sensors.offline" = "Offline";
 "sensors.devices %@" = "%@ Geräte";
+
+/* Suche */
+"search.button" = "Geräte suchen";
+"search.prompt" = "Gerät oder Raum";
+"search.noResults.title" = "Keine Treffer";
+"search.noResults.body" = "Kein Gerät passt zu deiner Suche. Versuche einen anderen Geräte- oder Raumnamen.";

@@ -111,3 +111,9 @@
 "sensors.locks.allLocked" = "All locked";
 "sensors.offline" = "Offline";
 "sensors.devices %@" = "%@ devices";
+
+/* Search */
+"search.button" = "Search devices";
+"search.prompt" = "Device or room";
+"search.noResults.title" = "No Results";
+"search.noResults.body" = "No device matches your search. Try a different device or room name.";

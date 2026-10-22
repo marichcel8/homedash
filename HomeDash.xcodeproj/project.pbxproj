@@ -23,6 +23,7 @@
 		1E1172A0A76FE607121A300E /* FocusOutline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BDCC160C7A8335910A730 /* FocusOutline.swift */; };
 		0DA047632111FC0304D851BE /* FocusableTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605F7706860FB9F62DB65201 /* FocusableTap.swift */; };
 		8D339C163904EF3C117513F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3119D3F46D6448B46F6E97 /* ContentView.swift */; };
+		CF23573A811319EB9954EC70 /* DeviceSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B277AF6B2B56B1D51E80F431 /* DeviceSearchView.swift */; };
 		1B3DE6DF18D8B5DC2C77E1EB /* PermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B221A1F64A6B97C6702E4308 /* PermissionView.swift */; };
 		79341287570ADD0AA63BE272 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF75B05EAE749D0C9D2511 /* EmptyStateView.swift */; };
 		F1FE9010DF30F9CC6BFCFAB5 /* FavoritesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89650B9E1FC05A7878D1EDC /* FavoritesSection.swift */; };
@@ -63,6 +64,7 @@
 		3F2BDCC160C7A8335910A730 /* FocusOutline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FocusOutline.swift"; sourceTree = "<group>"; };
 		605F7706860FB9F62DB65201 /* FocusableTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FocusableTap.swift"; sourceTree = "<group>"; };
 		5B3119D3F46D6448B46F6E97 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView.swift"; sourceTree = "<group>"; };
+		B277AF6B2B56B1D51E80F431 /* DeviceSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceSearchView.swift"; sourceTree = "<group>"; };
 		B221A1F64A6B97C6702E4308 /* PermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PermissionView.swift"; sourceTree = "<group>"; };
 		5ADF75B05EAE749D0C9D2511 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmptyStateView.swift"; sourceTree = "<group>"; };
 		A89650B9E1FC05A7878D1EDC /* FavoritesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesSection.swift"; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				5B3119D3F46D6448B46F6E97 /* ContentView.swift */,
+				B277AF6B2B56B1D51E80F431 /* DeviceSearchView.swift */,
 				B221A1F64A6B97C6702E4308 /* PermissionView.swift */,
 				5ADF75B05EAE749D0C9D2511 /* EmptyStateView.swift */,
 				A89650B9E1FC05A7878D1EDC /* FavoritesSection.swift */,
@@ -332,6 +335,7 @@
 				1E1172A0A76FE607121A300E /* FocusOutline.swift in Sources */,
 				0DA047632111FC0304D851BE /* FocusableTap.swift in Sources */,
 				8D339C163904EF3C117513F5 /* ContentView.swift in Sources */,
+				CF23573A811319EB9954EC70 /* DeviceSearchView.swift in Sources */,
 				1B3DE6DF18D8B5DC2C77E1EB /* PermissionView.swift in Sources */,
 				79341287570ADD0AA63BE272 /* EmptyStateView.swift in Sources */,
 				F1FE9010DF30F9CC6BFCFAB5 /* FavoritesSection.swift in Sources */,

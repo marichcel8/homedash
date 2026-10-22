@@ -63,8 +63,11 @@ struct HomeDashboardView: View {
                 }
             }
             Spacer()
-            if store.homes.count > 1 {
-                HomePickerView()
+            HStack(spacing: 24) {
+                SearchButton()
+                if store.homes.count > 1 {
+                    HomePickerView()
+                }
             }
         }
         .padding(.horizontal, HomeDesign.safeAreaH)
