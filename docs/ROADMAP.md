@@ -19,7 +19,8 @@ Network-Abhängigkeit, keine Analytics.
 - **1.0.2** (in Arbeit): HMHomeDelegate-Bindings via @objc — Live-Updates
   für Home-Rename, Room-Rename, Accessory-Room-Wechsel, Szenen-Operationen
 - **1.1.0** (in Arbeit, auf `main`): ✅ Sensor-Übersicht (Status-Chips unter
-  dem Header), ✅ Gerätesuche (Lupe im Header, Geräte- oder Raumname)
+  dem Header), ✅ Gerätesuche (Lupe im Header, Geräte- oder Raumname),
+  ✅ Kamera-Streams (Kamera-Reihe mit Snapshots, Vollbild-Livebild)
 
 ---
 
@@ -29,7 +30,7 @@ Network-Abhängigkeit, keine Analytics.
 
 | Feature | API/Begründung | Effort |
 |---|---|---|
-| 📹 **Kamera-Streams** | HMCameraProfile + AVPlayer. TV ist DER Bildschirm für Türklingel/Sicherheitskameras. Größtes funktionales Loch in v1.0 | 2–3 Wo |
+| ✅ 📹 **Kamera-Streams** | HMCameraProfile + AVPlayer. TV ist DER Bildschirm für Türklingel/Sicherheitskameras. Größtes funktionales Loch in v1.0 | 2–3 Wo |
 | ✅ 🌡️ **Sensor-Übersicht** (PR #1) | Temperatur/Feuchtigkeit/Bewegung als eigene Sektion oben, nicht versteckt in Tiles | 1 Wo |
 | ✅ 🔍 **Suche / Filter** (PR #1) | Siri-Remote-Tastatur → springt zum Gerät. Wichtig ab ~20 Geräten | 2–3 Tage |
 | 🎯 **Top-Shelf-Widget** | Lieblings-Tiles auf tvOS-Startseite. Sehr Apple-TV-native | 1 Wo |

@@ -117,3 +117,10 @@
 "search.prompt" = "Device or room";
 "search.noResults.title" = "No Results";
 "search.noResults.body" = "No device matches your search. Try a different device or room name.";
+
+/* Cameras */
+"dashboard.cameras" = "Cameras";
+"camera.live" = "LIVE";
+"camera.retry" = "Press Select to try again.";
+"camera.error.noStream" = "This camera doesn't offer a live stream.";
+"a11y.camera.open" = "Opens the live view";

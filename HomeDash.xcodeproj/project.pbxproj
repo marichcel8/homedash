@@ -32,6 +32,8 @@
 		DCD6602FC8B16973AC047F96 /* RoomSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E291FE23E86766319454A /* RoomSection.swift */; };
 		35BB9C4ED2B7DE1E58F032C3 /* ScenesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169064ACDEEAE11A358276F /* ScenesSection.swift */; };
 		683039D64A7B34A55462987C /* SensorOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A3D512301C1B649B3DFBA1 /* SensorOverview.swift */; };
+		D11F1F9900C661F6DF3945F8 /* CamerasSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F100241AF0F87BAB4429F9A /* CamerasSection.swift */; };
+		267F5579228097269ABBF30A /* CameraStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FA57EB023D4C19A209F856 /* CameraStreamView.swift */; };
 		14ED032265A9BC90D506DA0A /* ErrorToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0FFA2A869259620CE76E4 /* ErrorToast.swift */; };
 		CB5E653ECA8043BE04AD2DA9 /* AccessoryTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B8ABB2751B76E188C757AF /* AccessoryTile.swift */; };
 		C463E0907C6503B9063EDCCD /* SceneTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9490F8C8BC669804A2E86DB8 /* SceneTile.swift */; };
@@ -73,6 +75,8 @@
 		F10E291FE23E86766319454A /* RoomSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomSection.swift"; sourceTree = "<group>"; };
 		3169064ACDEEAE11A358276F /* ScenesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScenesSection.swift"; sourceTree = "<group>"; };
 		A0A3D512301C1B649B3DFBA1 /* SensorOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SensorOverview.swift"; sourceTree = "<group>"; };
+		1F100241AF0F87BAB4429F9A /* CamerasSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CamerasSection.swift"; sourceTree = "<group>"; };
+		D4FA57EB023D4C19A209F856 /* CameraStreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraStreamView.swift"; sourceTree = "<group>"; };
 		CCB0FFA2A869259620CE76E4 /* ErrorToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ErrorToast.swift"; sourceTree = "<group>"; };
 		59B8ABB2751B76E188C757AF /* AccessoryTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccessoryTile.swift"; sourceTree = "<group>"; };
 		9490F8C8BC669804A2E86DB8 /* SceneTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SceneTile.swift"; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 				F10E291FE23E86766319454A /* RoomSection.swift */,
 				3169064ACDEEAE11A358276F /* ScenesSection.swift */,
 				A0A3D512301C1B649B3DFBA1 /* SensorOverview.swift */,
+				1F100241AF0F87BAB4429F9A /* CamerasSection.swift */,
+				D4FA57EB023D4C19A209F856 /* CameraStreamView.swift */,
 				CCB0FFA2A869259620CE76E4 /* ErrorToast.swift */,
 				8635202D3DD52390E6693AEA /* Tiles */,
 				CEBDCEE968876A96A15D0E6B /* Detail */,
@@ -344,6 +350,8 @@
 				DCD6602FC8B16973AC047F96 /* RoomSection.swift in Sources */,
 				35BB9C4ED2B7DE1E58F032C3 /* ScenesSection.swift in Sources */,
 				683039D64A7B34A55462987C /* SensorOverview.swift in Sources */,
+				D11F1F9900C661F6DF3945F8 /* CamerasSection.swift in Sources */,
+				267F5579228097269ABBF30A /* CameraStreamView.swift in Sources */,
 				14ED032265A9BC90D506DA0A /* ErrorToast.swift in Sources */,
 				CB5E653ECA8043BE04AD2DA9 /* AccessoryTile.swift in Sources */,
 				C463E0907C6503B9063EDCCD /* SceneTile.swift in Sources */,

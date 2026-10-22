@@ -19,6 +19,7 @@ struct AccessoryTile: View {
     @Environment(HomeStore.self) private var store
     @FocusState private var isFocused: Bool
     @State private var showDetail = false
+    @State private var showCamera = false
 
     // Lokaler State-Spiegel (siehe Begründung im HomeStore).
     @State private var isActive: Bool = false
@@ -72,7 +73,9 @@ struct AccessoryTile: View {
         .accessibilityValue(Text(accessibilityValueText))
         // Hint richtet sich nach Tap-Verhalten: bei togglebaren Geräten
         // ist der primäre Tap = umschalten, sonst = Detail öffnen.
-        .accessibilityHint(Text(accessory.hasTogglableSwitch
+        .accessibilityHint(Text(accessory.cameraProfile != nil
+                                ? "a11y.camera.open"
+                                : accessory.hasTogglableSwitch
                                 ? "a11y.tile.toggle"
                                 : "a11y.tile.openDetail",
                                 bundle: .main))
@@ -80,6 +83,11 @@ struct AccessoryTile: View {
         .sheet(isPresented: $showDetail) {
             AccessoryDetailSheet(accessory: accessory)
                 .environment(store)
+        }
+        .fullScreenCover(isPresented: $showCamera) {
+            if let profile = accessory.cameraProfile {
+                CameraFullscreenView(accessory: accessory, profile: profile)
+            }
         }
         .onAppear { syncFromAccessory() }
         .onChange(of: store.revision(for: accessory)) { _, _ in
@@ -146,7 +154,9 @@ struct AccessoryTile: View {
 
     // MARK: - Aktionen
     private func handleTap() {
-        if accessory.hasTogglableSwitch {
+        if accessory.cameraProfile != nil {
+            showCamera = true
+        } else if accessory.hasTogglableSwitch {
             isActive.toggle()  // optimistic
             Task {
                 await store.toggle(accessory)
