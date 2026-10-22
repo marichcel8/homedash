@@ -25,6 +25,7 @@ struct AccessoryDetailSheet: View {
                 }
             }
         }
+        .uiTestContainer("detail.sheet")
     }
 
     private var header: some View {
@@ -136,5 +137,6 @@ private struct CloseButton: View {
             .focusableTap(isFocused: $isFocused, onTap: action)
             .focusOutlineCircle(isFocused: isFocused)
             .accessibilityLabel(Text("detail.close", bundle: .main))
+            .accessibilityIdentifier("detail.close")
     }
 }

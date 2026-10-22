@@ -56,6 +56,13 @@ RESOURCE_FILES = [
     "Preview Content/Preview Assets.xcassets",
 ]
 
+# UI-Tests (XCUITest, tvOS-Fernbedienung via XCUIRemote) – Ordner HomeDashUITests/
+UITEST_DIR = "HomeDashUITests"
+UITEST_FILES = [
+    "HomeDashUITests.swift",
+    "HomeDashUITestCase.swift",
+]
+
 LOCALES = ["de", "en"]
 LOCALIZED_FILE = "Localizable.strings"
 INFO_PLIST = "Info.plist"
@@ -89,6 +96,17 @@ RESOURCES_PHASE_ID = uid("phase.resources")
 FRAMEWORKS_PHASE_ID = uid("phase.frameworks")
 
 LOC_VARIANT_GROUP_ID = uid("variant.localizable")
+
+UITEST_GROUP_ID = uid("group.uitests")
+UITEST_TARGET_ID = uid("target.HomeDashUITests")
+UITEST_PRODUCT_ID = uid("product.HomeDashUITests.xctest")
+UITEST_SOURCES_PHASE_ID = uid("phase.uitests.sources")
+UITEST_FRAMEWORKS_PHASE_ID = uid("phase.uitests.frameworks")
+UITEST_PROXY_ID = uid("proxy.uitests.app")
+UITEST_DEPENDENCY_ID = uid("dependency.uitests.app")
+BUILD_CONFIG_LIST_UITEST_ID = uid("buildconfiglist.uitests")
+BUILD_CONFIG_DEBUG_UITEST_ID = uid("buildconfig.debug.uitests")
+BUILD_CONFIG_RELEASE_UITEST_ID = uid("buildconfig.release.uitests")
 
 
 def file_ref_id(path: str) -> str:
@@ -146,6 +164,23 @@ target_common = {
     "SWIFT_EMIT_LOC_STRINGS": "YES",
     "SWIFT_VERSION": "5.0",
     "TARGETED_DEVICE_FAMILY": "3",
+    "TVOS_DEPLOYMENT_TARGET": "17.0",
+}
+
+# UI-Test-Target (gleich für Debug + Release)
+uitest_common = {
+    "CODE_SIGN_STYLE": "Automatic",
+    "CURRENT_PROJECT_VERSION": "1",
+    "DEVELOPMENT_TEAM": "JRKK5F6HH6",
+    "GENERATE_INFOPLIST_FILE": "YES",
+    "MARKETING_VERSION": "1.0",
+    "PRODUCT_BUNDLE_IDENTIFIER": "de.marcel.homedash.uitests",
+    "PRODUCT_NAME": "$(TARGET_NAME)",
+    "SDKROOT": "appletvos",
+    "SWIFT_EMIT_LOC_STRINGS": "NO",
+    "SWIFT_VERSION": "5.0",
+    "TARGETED_DEVICE_FAMILY": "3",
+    "TEST_TARGET_NAME": "HomeDash",
     "TVOS_DEPLOYMENT_TARGET": "17.0",
 }
 
@@ -229,6 +264,11 @@ for r in RESOURCE_FILES:
     name = os.path.basename(r)
     out.append(f"\t\t{bf_id} /* {name} in Resources */ = {{isa = PBXBuildFile; fileRef = {fr_id} /* {name} */; }};")
 
+for t in UITEST_FILES:
+    bf_id = build_file_id(f"{UITEST_DIR}/{t}", "uitests.sources")
+    fr_id = file_ref_id(f"{UITEST_DIR}/{t}")
+    out.append(f"\t\t{bf_id} /* {t} in Sources */ = {{isa = PBXBuildFile; fileRef = {fr_id} /* {t} */; }};")
+
 bf_loc_id = build_file_id(LOCALIZED_FILE, "resources.localizable")
 out.append(f"\t\t{bf_loc_id} /* Localizable.strings in Resources */ = {{isa = PBXBuildFile; fileRef = {LOC_VARIANT_GROUP_ID} /* Localizable.strings */; }};")
 out.append("/* End PBXBuildFile section */")
@@ -237,6 +277,9 @@ out.append("/* End PBXBuildFile section */")
 out.append("")
 out.append("/* Begin PBXFileReference section */")
 out.append(f"\t\t{APP_PRODUCT_ID} /* HomeDash.app */ = {{isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeDash.app; sourceTree = BUILT_PRODUCTS_DIR; }};")
+out.append(f"\t\t{UITEST_PRODUCT_ID} /* HomeDashUITests.xctest */ = {{isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeDashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; }};")
+for t in UITEST_FILES:
+    out.append(f"\t\t{file_ref_id(f'{UITEST_DIR}/{t}')} /* {t} */ = {{isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = \"{t}\"; sourceTree = \"<group>\"; }};")
 out.append(f"\t\t{file_ref_id(INFO_PLIST)} /* Info.plist */ = {{isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = {INFO_PLIST}; sourceTree = \"<group>\"; }};")
 out.append(f"\t\t{file_ref_id(ENTITLEMENTS)} /* HomeDash.entitlements */ = {{isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = {ENTITLEMENTS}; sourceTree = \"<group>\"; }};")
 
@@ -260,10 +303,29 @@ for loc in LOCALES:
 
 out.append("/* End PBXFileReference section */")
 
+# PBXContainerItemProxy (UI-Tests hängen von der App ab)
+out.append("")
+out.append("/* Begin PBXContainerItemProxy section */")
+out.append(f"\t\t{UITEST_PROXY_ID} /* PBXContainerItemProxy */ = {{")
+out.append("\t\t\tisa = PBXContainerItemProxy;")
+out.append(f"\t\t\tcontainerPortal = {PROJECT_ID} /* Project object */;")
+out.append("\t\t\tproxyType = 1;")
+out.append(f"\t\t\tremoteGlobalIDString = {TARGET_ID};")
+out.append("\t\t\tremoteInfo = HomeDash;")
+out.append("\t\t};")
+out.append("/* End PBXContainerItemProxy section */")
+
 # PBXFrameworksBuildPhase
 out.append("")
 out.append("/* Begin PBXFrameworksBuildPhase section */")
 out.append(f"\t\t{FRAMEWORKS_PHASE_ID} /* Frameworks */ = {{")
+out.append("\t\t\tisa = PBXFrameworksBuildPhase;")
+out.append("\t\t\tbuildActionMask = 2147483647;")
+out.append("\t\t\tfiles = (")
+out.append("\t\t\t);")
+out.append("\t\t\trunOnlyForDeploymentPostprocessing = 0;")
+out.append("\t\t};")
+out.append(f"\t\t{UITEST_FRAMEWORKS_PHASE_ID} /* Frameworks */ = {{")
 out.append("\t\t\tisa = PBXFrameworksBuildPhase;")
 out.append("\t\t\tbuildActionMask = 2147483647;")
 out.append("\t\t\tfiles = (")
@@ -391,11 +453,17 @@ out.extend(group_block(APP_GROUP_ID, "HomeDash", [
     (file_ref_id("PrivacyInfo.xcprivacy"), "PrivacyInfo.xcprivacy"),
 ], path="HomeDash"))
 
+# UI-Tests
+out.extend(group_block(UITEST_GROUP_ID, "HomeDashUITests", [
+    (file_ref_id(f"{UITEST_DIR}/{t}"), t) for t in UITEST_FILES
+], path=UITEST_DIR))
+
 # Products
 out.append(f"\t\t{PRODUCTS_GROUP_ID} /* Products */ = {{")
 out.append("\t\t\tisa = PBXGroup;")
 out.append("\t\t\tchildren = (")
 out.append(f"\t\t\t\t{APP_PRODUCT_ID} /* HomeDash.app */,")
+out.append(f"\t\t\t\t{UITEST_PRODUCT_ID} /* HomeDashUITests.xctest */,")
 out.append("\t\t\t);")
 out.append("\t\t\tname = Products;")
 out.append("\t\t\tsourceTree = \"<group>\";")
@@ -406,6 +474,7 @@ out.append(f"\t\t{MAIN_GROUP_ID} = {{")
 out.append("\t\t\tisa = PBXGroup;")
 out.append("\t\t\tchildren = (")
 out.append(f"\t\t\t\t{APP_GROUP_ID} /* HomeDash */,")
+out.append(f"\t\t\t\t{UITEST_GROUP_ID} /* HomeDashUITests */,")
 out.append(f"\t\t\t\t{PRODUCTS_GROUP_ID} /* Products */,")
 out.append("\t\t\t);")
 out.append("\t\t\tsourceTree = \"<group>\";")
@@ -432,6 +501,23 @@ out.append("\t\t\tproductName = HomeDash;")
 out.append(f"\t\t\tproductReference = {APP_PRODUCT_ID} /* HomeDash.app */;")
 out.append("\t\t\tproductType = \"com.apple.product-type.application\";")
 out.append("\t\t};")
+out.append(f"\t\t{UITEST_TARGET_ID} /* HomeDashUITests */ = {{")
+out.append("\t\t\tisa = PBXNativeTarget;")
+out.append(f"\t\t\tbuildConfigurationList = {BUILD_CONFIG_LIST_UITEST_ID} /* Build configuration list for PBXNativeTarget \"HomeDashUITests\" */;")
+out.append("\t\t\tbuildPhases = (")
+out.append(f"\t\t\t\t{UITEST_SOURCES_PHASE_ID} /* Sources */,")
+out.append(f"\t\t\t\t{UITEST_FRAMEWORKS_PHASE_ID} /* Frameworks */,")
+out.append("\t\t\t);")
+out.append("\t\t\tbuildRules = (")
+out.append("\t\t\t);")
+out.append("\t\t\tdependencies = (")
+out.append(f"\t\t\t\t{UITEST_DEPENDENCY_ID} /* PBXTargetDependency */,")
+out.append("\t\t\t);")
+out.append("\t\t\tname = HomeDashUITests;")
+out.append("\t\t\tproductName = HomeDashUITests;")
+out.append(f"\t\t\tproductReference = {UITEST_PRODUCT_ID} /* HomeDashUITests.xctest */;")
+out.append("\t\t\tproductType = \"com.apple.product-type.bundle.ui-testing\";")
+out.append("\t\t};")
 out.append("/* End PBXNativeTarget section */")
 
 # PBXProject
@@ -452,6 +538,10 @@ out.append("\t\t\t\t\t\t\t\tenabled = 1;")
 out.append("\t\t\t\t\t\t\t};")
 out.append("\t\t\t\t\t\t};")
 out.append("\t\t\t\t\t};")
+out.append(f"\t\t\t\t\t{UITEST_TARGET_ID} = {{")
+out.append("\t\t\t\t\t\tCreatedOnToolsVersion = 26.0;")
+out.append(f"\t\t\t\t\t\tTestTargetID = {TARGET_ID};")
+out.append("\t\t\t\t\t};")
 out.append("\t\t\t\t};")
 out.append("\t\t\t};")
 out.append(f"\t\t\tbuildConfigurationList = {BUILD_CONFIG_LIST_PROJECT_ID} /* Build configuration list for PBXProject \"HomeDash\" */;")
@@ -469,6 +559,7 @@ out.append("\t\t\tprojectDirPath = \"\";")
 out.append("\t\t\tprojectRoot = \"\";")
 out.append("\t\t\ttargets = (")
 out.append(f"\t\t\t\t{TARGET_ID} /* HomeDash */,")
+out.append(f"\t\t\t\t{UITEST_TARGET_ID} /* HomeDashUITests */,")
 out.append("\t\t\t);")
 out.append("\t\t};")
 out.append("/* End PBXProject section */")
@@ -502,7 +593,26 @@ for s in SWIFT_FILES:
 out.append("\t\t\t);")
 out.append("\t\t\trunOnlyForDeploymentPostprocessing = 0;")
 out.append("\t\t};")
+out.append(f"\t\t{UITEST_SOURCES_PHASE_ID} /* Sources */ = {{")
+out.append("\t\t\tisa = PBXSourcesBuildPhase;")
+out.append("\t\t\tbuildActionMask = 2147483647;")
+out.append("\t\t\tfiles = (")
+for t in UITEST_FILES:
+    out.append(f"\t\t\t\t{build_file_id(f'{UITEST_DIR}/{t}', 'uitests.sources')} /* {t} in Sources */,")
+out.append("\t\t\t);")
+out.append("\t\t\trunOnlyForDeploymentPostprocessing = 0;")
+out.append("\t\t};")
 out.append("/* End PBXSourcesBuildPhase section */")
+
+# PBXTargetDependency
+out.append("")
+out.append("/* Begin PBXTargetDependency section */")
+out.append(f"\t\t{UITEST_DEPENDENCY_ID} /* PBXTargetDependency */ = {{")
+out.append("\t\t\tisa = PBXTargetDependency;")
+out.append(f"\t\t\ttarget = {TARGET_ID} /* HomeDash */;")
+out.append(f"\t\t\ttargetProxy = {UITEST_PROXY_ID} /* PBXContainerItemProxy */;")
+out.append("\t\t};")
+out.append("/* End PBXTargetDependency section */")
 
 # XCBuildConfiguration
 out.append("")
@@ -519,6 +629,8 @@ def emit_config(cid, name, settings):
 
 emit_config(BUILD_CONFIG_DEBUG_TARGET_ID, "Debug", target_common)
 emit_config(BUILD_CONFIG_RELEASE_TARGET_ID, "Release", target_common)
+emit_config(BUILD_CONFIG_DEBUG_UITEST_ID, "Debug", uitest_common)
+emit_config(BUILD_CONFIG_RELEASE_UITEST_ID, "Release", uitest_common)
 emit_config(BUILD_CONFIG_DEBUG_PROJECT_ID, "Debug", project_debug)
 emit_config(BUILD_CONFIG_RELEASE_PROJECT_ID, "Release", project_release)
 
@@ -546,6 +658,15 @@ out.append("\t\t\t);")
 out.append("\t\t\tdefaultConfigurationIsVisible = 0;")
 out.append("\t\t\tdefaultConfigurationName = Release;")
 out.append("\t\t};")
+out.append(f"\t\t{BUILD_CONFIG_LIST_UITEST_ID} /* Build configuration list for PBXNativeTarget \"HomeDashUITests\" */ = {{")
+out.append("\t\t\tisa = XCConfigurationList;")
+out.append("\t\t\tbuildConfigurations = (")
+out.append(f"\t\t\t\t{BUILD_CONFIG_DEBUG_UITEST_ID} /* Debug */,")
+out.append(f"\t\t\t\t{BUILD_CONFIG_RELEASE_UITEST_ID} /* Release */,")
+out.append("\t\t\t);")
+out.append("\t\t\tdefaultConfigurationIsVisible = 0;")
+out.append("\t\t\tdefaultConfigurationName = Release;")
+out.append("\t\t};")
 out.append("/* End XCConfigurationList section */")
 
 out.append("\t};")
@@ -559,3 +680,86 @@ with open(pbx_path, "w") as f:
 print(f"Wrote {pbx_path}")
 print(f"Sources: {len(SWIFT_FILES)} swift files")
 print(f"Target ID: {TARGET_ID}")
+
+# ---- Shared Scheme (Run + Test) ----
+def buildable_ref(blueprint, buildable, name, indent):
+    pad = " " * indent
+    return (f"{pad}<BuildableReference\n"
+            f"{pad}   BuildableIdentifier = \"primary\"\n"
+            f"{pad}   BlueprintIdentifier = \"{blueprint}\"\n"
+            f"{pad}   BuildableName = \"{buildable}\"\n"
+            f"{pad}   BlueprintName = \"{name}\"\n"
+            f"{pad}   ReferencedContainer = \"container:HomeDash.xcodeproj\">\n"
+            f"{pad}</BuildableReference>")
+
+APP_REF = lambda i: buildable_ref(TARGET_ID, "HomeDash.app", "HomeDash", i)
+scheme = f"""<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "1620"
+   version = "1.7">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+{APP_REF(12)}
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+{buildable_ref(UITEST_TARGET_ID, "HomeDashUITests.xctest", "HomeDashUITests", 12)}
+         </TestableReference>
+      </Testables>
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+{APP_REF(9)}
+      </BuildableProductRunnable>
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+{APP_REF(9)}
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>
+"""
+scheme_dir = os.path.join(PROJECT_DIR, "xcshareddata", "xcschemes")
+os.makedirs(scheme_dir, exist_ok=True)
+with open(os.path.join(scheme_dir, "HomeDash.xcscheme"), "w") as f:
+    f.write(scheme)
+print("Wrote scheme HomeDash.xcscheme (Run + UI-Tests)")

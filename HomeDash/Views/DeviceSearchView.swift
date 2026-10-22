@@ -38,6 +38,7 @@ struct DeviceSearchView: View {
             }
             .searchable(text: $query, prompt: Text("search.prompt", bundle: .main))
         }
+        .uiTestContainer("search.view")
     }
 
     /// Leere Suche zeigt alle Geräte alphabetisch; sonst Treffer in
@@ -75,6 +76,7 @@ struct SearchButton: View {
         .focused($isFocused)
         .focusOutlineCircle(isFocused: isFocused, lineWidth: 3)
         .accessibilityLabel(Text("search.button", bundle: .main))
+        .accessibilityIdentifier("search.button")
         .fullScreenCover(isPresented: $showSearch) {
             DeviceSearchView()
                 .environment(store)

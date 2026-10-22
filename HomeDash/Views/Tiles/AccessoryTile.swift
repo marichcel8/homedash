@@ -77,6 +77,7 @@ struct AccessoryTile: View {
                                 : "a11y.tile.openDetail",
                                 bundle: .main))
         .accessibilityAddTraits(.isButton)
+        .accessibilityIdentifier("tile.accessory")
         .sheet(isPresented: $showDetail) {
             AccessoryDetailSheet(accessory: accessory)
                 .environment(store)

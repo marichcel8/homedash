@@ -25,6 +25,7 @@ struct HomeDashboardView: View {
             }
             .padding(.vertical, HomeDesign.safeAreaV)
         }
+        .accessibilityIdentifier("dashboard")
         .onPlayPauseCommand {
             Task { await store.refresh() }
         }
@@ -56,10 +57,12 @@ struct HomeDashboardView: View {
                 Text("app.name", bundle: .main)
                     .font(HomeDesign.headerFont)
                     .foregroundStyle(.primary)
+                    .accessibilityIdentifier("dashboard.title")
                 if let home = store.currentHome {
                     Text(home.name)
                         .font(HomeDesign.tileTitleFont)
                         .foregroundStyle(.secondary)
+                        .accessibilityIdentifier("dashboard.homeName")
                 }
             }
             Spacer()
@@ -71,5 +74,8 @@ struct HomeDashboardView: View {
             }
         }
         .padding(.horizontal, HomeDesign.safeAreaH)
+        // Lupe/Home-Picker sitzen rechts außen; ohne Focus-Section findet die
+        // Focus-Engine sie von links stehenden Tiles aus nach oben nicht.
+        .focusSection()
     }
 }

@@ -41,11 +41,16 @@
 		ABCB0B815CE0A34494D5F198 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC4A6CAC76DAAF8BF6C42990 /* Assets.xcassets */; };
 		7E15F97DA01473E0DE51AAC4 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = F141093369BE4F6DE8C4B796 /* PrivacyInfo.xcprivacy */; };
 		060987063EAD510663AEA798 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD3D582C8FF5953B3D9C1A15 /* Preview Assets.xcassets */; };
+		36B14FF47E38DE5EC5182F29 /* HomeDashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7596383CFE6C353D362B0AA6 /* HomeDashUITests.swift */; };
+		56624331823A08EEAF88B40D /* HomeDashUITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F66790A7CC145B910154EB /* HomeDashUITestCase.swift */; };
 		8F2F94689FCAD7A26EDCA686 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47183E8B15F4FADC78EACDA1 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		451B886F9C96ED1744C9F222 /* HomeDash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeDash.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6468383EE29753F718E90456 /* HomeDashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeDashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7596383CFE6C353D362B0AA6 /* HomeDashUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeDashUITests.swift"; sourceTree = "<group>"; };
+		03F66790A7CC145B910154EB /* HomeDashUITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeDashUITestCase.swift"; sourceTree = "<group>"; };
 		D5E99AC2F4D0507A969950E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B5AE9E88921DE7D741BC261 /* HomeDash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeDash.entitlements; sourceTree = "<group>"; };
 		E15AD4C18507E2C8A3CB1DA7 /* HomeDashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeDashApp.swift"; sourceTree = "<group>"; };
@@ -86,8 +91,25 @@
 		D839DA8A37961E8328FCBC07 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXContainerItemProxy section */
+		0A8A94B434DFFFD11B4E3133 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EACBEB2E5A1B6AC3EC199005 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F946E7157C8D51B0712F13E3;
+			remoteInfo = HomeDash;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		FE7006A0F8A8753331FC7CCD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F02FA4169125BA5D538CC90 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -225,10 +247,20 @@
 			path = "HomeDash";
 			sourceTree = "<group>";
 		};
+		ABAE268207F6A21E7F54AF69 /* HomeDashUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7596383CFE6C353D362B0AA6 /* HomeDashUITests.swift */,
+				03F66790A7CC145B910154EB /* HomeDashUITestCase.swift */,
+			);
+			path = "HomeDashUITests";
+			sourceTree = "<group>";
+		};
 		692092DE1C1C8624E142B71D /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				451B886F9C96ED1744C9F222 /* HomeDash.app */,
+				6468383EE29753F718E90456 /* HomeDashUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -237,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				C8A1E76B6CA46DDC89E29CCD /* HomeDash */,
+				ABAE268207F6A21E7F54AF69 /* HomeDashUITests */,
 				692092DE1C1C8624E142B71D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -261,6 +294,23 @@
 			productReference = 451B886F9C96ED1744C9F222 /* HomeDash.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1E77262AB622B0BFFFBFFC21 /* HomeDashUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 320AD3C17BFAFE1CD13A7D1C /* Build configuration list for PBXNativeTarget "HomeDashUITests" */;
+			buildPhases = (
+				D129827CCF4B623C4BF6E1BB /* Sources */,
+				9F02FA4169125BA5D538CC90 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3C8D30162BA5AE53C8D4483D /* PBXTargetDependency */,
+			);
+			name = HomeDashUITests;
+			productName = HomeDashUITests;
+			productReference = 6468383EE29753F718E90456 /* HomeDashUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -279,6 +329,10 @@
 							};
 						};
 					};
+					1E77262AB622B0BFFFBFFC21 = {
+						CreatedOnToolsVersion = 26.0;
+						TestTargetID = F946E7157C8D51B0712F13E3;
+					};
 				};
 			};
 			buildConfigurationList = F204399F5CD61B8CA6AEF4E7 /* Build configuration list for PBXProject "HomeDash" */;
@@ -296,6 +350,7 @@
 			projectRoot = "";
 			targets = (
 				F946E7157C8D51B0712F13E3 /* HomeDash */,
+				1E77262AB622B0BFFFBFFC21 /* HomeDashUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -353,7 +408,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D129827CCF4B623C4BF6E1BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36B14FF47E38DE5EC5182F29 /* HomeDashUITests.swift in Sources */,
+				56624331823A08EEAF88B40D /* HomeDashUITestCase.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3C8D30162BA5AE53C8D4483D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F946E7157C8D51B0712F13E3 /* HomeDash */;
+			targetProxy = 0A8A94B434DFFFD11B4E3133 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		92B651005C059E5A014B4274 /* Debug */ = {
@@ -410,6 +482,44 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Release;
+		};
+		E3F86F8290E82797115589F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JRKK5F6HH6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.marcel.homedash.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_TARGET_NAME = HomeDash;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Debug;
+		};
+		C893991CA5463C85B73C4A02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JRKK5F6HH6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.marcel.homedash.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_TARGET_NAME = HomeDash;
 				TVOS_DEPLOYMENT_TARGET = 17.0;
 			};
 			name = Release;
@@ -492,6 +602,15 @@
 			buildConfigurations = (
 				92B651005C059E5A014B4274 /* Debug */,
 				C0F789BE5DEE84C6255D0CC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		320AD3C17BFAFE1CD13A7D1C /* Build configuration list for PBXNativeTarget "HomeDashUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3F86F8290E82797115589F5 /* Debug */,
+				C893991CA5463C85B73C4A02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
