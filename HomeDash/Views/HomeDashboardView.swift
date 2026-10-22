@@ -9,6 +9,7 @@ struct HomeDashboardView: View {
             LazyVStack(alignment: .leading, spacing: HomeDesign.sectionTopPadding, pinnedViews: []) {
                 header
                 SensorOverview()
+                CamerasSection()
                 ScenesSection()
                 FavoritesSection()
                 ForEach(store.roomsInCurrentHome(), id: \.uniqueIdentifier) { room in

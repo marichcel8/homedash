@@ -117,3 +117,10 @@
 "search.prompt" = "Gerät oder Raum";
 "search.noResults.title" = "Keine Treffer";
 "search.noResults.body" = "Kein Gerät passt zu deiner Suche. Versuche einen anderen Geräte- oder Raumnamen.";
+
+/* Kameras */
+"dashboard.cameras" = "Kameras";
+"camera.live" = "LIVE";
+"camera.retry" = "Select drücken, um es erneut zu versuchen.";
+"camera.error.noStream" = "Diese Kamera bietet keinen Livestream an.";
+"a11y.camera.open" = "Öffnet das Livebild";
