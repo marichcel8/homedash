@@ -63,6 +63,7 @@ UITEST_DIR = "HomeDashUITests"
 UITEST_FILES = [
     "HomeDashUITests.swift",
     "HomeDashUITestCase.swift",
+    "HomeDashCameraUITests.swift",
 ]
 
 LOCALES = ["de", "en"]

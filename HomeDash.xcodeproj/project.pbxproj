@@ -45,6 +45,7 @@
 		060987063EAD510663AEA798 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD3D582C8FF5953B3D9C1A15 /* Preview Assets.xcassets */; };
 		36B14FF47E38DE5EC5182F29 /* HomeDashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7596383CFE6C353D362B0AA6 /* HomeDashUITests.swift */; };
 		56624331823A08EEAF88B40D /* HomeDashUITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F66790A7CC145B910154EB /* HomeDashUITestCase.swift */; };
+		9B36EDBF0B06BBD733E014FA /* HomeDashCameraUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31473C534B6ED9AB48D1A3C2 /* HomeDashCameraUITests.swift */; };
 		8F2F94689FCAD7A26EDCA686 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47183E8B15F4FADC78EACDA1 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		6468383EE29753F718E90456 /* HomeDashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeDashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7596383CFE6C353D362B0AA6 /* HomeDashUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeDashUITests.swift"; sourceTree = "<group>"; };
 		03F66790A7CC145B910154EB /* HomeDashUITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeDashUITestCase.swift"; sourceTree = "<group>"; };
+		31473C534B6ED9AB48D1A3C2 /* HomeDashCameraUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeDashCameraUITests.swift"; sourceTree = "<group>"; };
 		D5E99AC2F4D0507A969950E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B5AE9E88921DE7D741BC261 /* HomeDash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeDash.entitlements; sourceTree = "<group>"; };
 		E15AD4C18507E2C8A3CB1DA7 /* HomeDashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeDashApp.swift"; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			children = (
 				7596383CFE6C353D362B0AA6 /* HomeDashUITests.swift */,
 				03F66790A7CC145B910154EB /* HomeDashUITestCase.swift */,
+				31473C534B6ED9AB48D1A3C2 /* HomeDashCameraUITests.swift */,
 			);
 			path = "HomeDashUITests";
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 			files = (
 				36B14FF47E38DE5EC5182F29 /* HomeDashUITests.swift in Sources */,
 				56624331823A08EEAF88B40D /* HomeDashUITestCase.swift in Sources */,
+				9B36EDBF0B06BBD733E014FA /* HomeDashCameraUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

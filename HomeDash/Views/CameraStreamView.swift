@@ -184,6 +184,17 @@ struct CameraFullscreenView: View {
         }
         .accessibilityElement(children: .combine)
         .accessibilityLabel(Text(accessory.name))
+        .accessibilityValue(Text(streamStateText))
+        .accessibilityIdentifier("camera.fullscreen")
+    }
+
+    /// Zustand für VoiceOver (und UI-Tests): „LIVE“, Fehlertext oder leer.
+    private var streamStateText: String {
+        switch controller.streamState {
+        case .streaming: NSLocalizedString("camera.live", comment: "")
+        case .failed(let message): message
+        case .idle, .starting: ""
+        }
     }
 
     private var titleBar: some View {

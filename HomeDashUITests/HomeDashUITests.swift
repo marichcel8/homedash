@@ -59,6 +59,22 @@ final class HomeDashUITests: HomeDashUITestCase {
         }
     }
 
+    /// Erwartet die vier Sensorarten der Homebridge-Test-Bridge
+    /// (docs/homekit-testgeraete.md). Ohne Bewegungsmelder: übersprungen.
+    func testSensorOverviewShowsAllSensorKinds() throws {
+        try requireDashboard()
+        let overview = element("sensors.overview")
+        guard overview.waitForExistence(timeout: 5),
+              element("sensor.motion").exists else {
+            throw XCTSkip("Test-Bridge nicht gekoppelt")
+        }
+        for kind in ["temperature", "humidity", "motion", "contacts"] {
+            XCTAssertTrue(element("sensor.\(kind)").exists, "Chip sensor.\(kind) fehlt")
+        }
+        let humidity = element("sensor.humidity").value as? String ?? ""
+        XCTAssertTrue(humidity.hasSuffix("%"), "Luftfeuchte ohne %: \(humidity)")
+    }
+
     func testSearchOpensAndClosesWithMenu() throws {
         try requireDashboard()
         let button = element("search.button")

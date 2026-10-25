@@ -37,6 +37,7 @@ struct CamerasSection: View {
                     .padding(.horizontal, HomeDesign.safeAreaH)
                     .padding(.vertical, 48)
                 }
+                .accessibilityIdentifier("cameras.section")
             }
         }
     }
@@ -99,8 +100,10 @@ struct CameraTile: View {
         .focusEffectDisabled()
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(Text(accessory.name))
+        .accessibilityValue(Text(subtitle))
         .accessibilityHint(Text("a11y.camera.open", bundle: .main))
         .accessibilityAddTraits(.isButton)
+        .accessibilityIdentifier("tile.camera")
         .fullScreenCover(isPresented: $showStream) {
             CameraFullscreenView(accessory: accessory, profile: profile)
         }
