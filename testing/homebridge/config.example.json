@@ -1,0 +1,33 @@
+{
+  "bridge": {
+    "name": "HomeDash Test-Bridge",
+    "username": "0E:00:00:00:00:01  (eigene zufällige MAC eintragen)",
+    "port": 51826,
+    "pin": "031-45-154"
+  },
+  "platforms": [
+    {
+      "platform": "HomeDashTestSensors"
+    },
+    {
+      "platform": "Camera-ffmpeg",
+      "cameras": [
+        {
+          "name": "Test Kamera",
+          "manufacturer": "HomeDash Test",
+          "unbridge": false,
+          "videoConfig": {
+            "source": "-re -f lavfi -i testsrc2=size=1280x720:rate=30",
+            "stillImageSource": "-f lavfi -i testsrc2=size=1280x720:rate=1 -frames:v 1",
+            "maxStreams": 2,
+            "maxWidth": 1280,
+            "maxHeight": 720,
+            "maxFPS": 30,
+            "vcodec": "libx264",
+            "audio": false
+          }
+        }
+      ]
+    }
+  ]
+}
